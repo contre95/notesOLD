@@ -1,6 +1,36 @@
-[TOC]
-
 # Clean Architecture
+
+- [Clean Architecture](#clean-architecture)
+  * [Foreword](#foreword)
+  * [Preface](#preface)
+  * [Introduction](#introduction)
+- [Part I: What is design and architecture ?](#part-i--what-is-design-and-architecture--)
+    + [The goal](#the-goal)
+  * [A tale of two values](#a-tale-of-two-values)
+    + [Behavior](#behavior)
+    + [Architecture](#architecture)
+    + [Eisenhower Matrix:](#eisenhower-matrix-)
+- [Part II: Starting from the brick: Programming paradigms](#part-ii--starting-from-the-brick--programming-paradigms)
+  * [Paradigm overview](#paradigm-overview)
+    + [Structured](#structured)
+    + [Object Oriented](#object-oriented)
+    + [Functional](#functional)
+    + [Food for thought](#food-for-thought)
+    + [Conclusion](#conclusion)
+  * [Structured Programming](#structured-programming)
+    + [Tests](#tests)
+    + [Conclusion](#conclusion-1)
+  * [Object Oriented Programming](#object-oriented-programming)
+    + [Encapsulation](#encapsulation)
+    + [Inheritance](#inheritance)
+    + [Polymorphism](#polymorphism)
+    + [The power of polymorphism](#the-power-of-polymorphism)
+    + [Dependency Inversion](#dependency-inversion)
+  * [Conclusion](#conclusion-2)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 
 ## Foreword
 
