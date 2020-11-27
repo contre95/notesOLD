@@ -10,7 +10,7 @@
     + [Behavior](#behavior)
     + [Architecture](#architecture)
     + [Eisenhower Matrix:](#eisenhower-matrix-)
-- [Part II: Starting from the brick: Programming paradigms](#part-ii--starting-from-the-brick--programming-paradigms)
+- [Part II: Programming paradigms](#part-ii--starting-from-the-brick--programming-paradigms)
   * [Paradigm overview](#paradigm-overview)
     + [Structured](#structured)
     + [Object Oriented](#object-oriented)
@@ -28,7 +28,6 @@
     + [Dependency Inversion](#dependency-inversion)
   * [Conclusion](#conclusion-2)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
 
