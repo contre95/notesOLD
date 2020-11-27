@@ -45,7 +45,7 @@ df['columns-with-missing-values'].replace(missing_value, mean)
 
 With pandas dataframe we can easily format an entire column with a single operation.
 
-Imagine the case we have a temperature in Farenheits  and we need to format it to Celsius
+Imagine the case we have a temperature in Fahrenheits  and we need to format it to Celsius
 
 ```python
 # Assuming we have a Dataframe loaded in the variable df
