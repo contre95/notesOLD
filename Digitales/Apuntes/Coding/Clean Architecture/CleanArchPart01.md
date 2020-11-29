@@ -10,7 +10,7 @@
     + [Behavior](#behavior)
     + [Architecture](#architecture)
     + [Eisenhower Matrix:](#eisenhower-matrix-)
-- [Part II: Programming paradigms](#part-ii--starting-from-the-brick--programming-paradigms)
+- [Part II: Starting from the brick: Programming paradigms](#part-ii--starting-from-the-brick--programming-paradigms)
   * [Paradigm overview](#paradigm-overview)
     + [Structured](#structured)
     + [Object Oriented](#object-oriented)
@@ -27,9 +27,16 @@
     + [The power of polymorphism](#the-power-of-polymorphism)
     + [Dependency Inversion](#dependency-inversion)
   * [Conclusion](#conclusion-2)
-
-
-
+- [Part III: Design Principles](#part-iii--design-principles)
+  * [S.O.L.I.D](#solid)
+  * [Single responsibility principle (SRP)](#single-responsibility-principle--srp-)
+  * [The open-closed principle (OCP)](#the-open-closed-principle--ocp-)
+  * [The Liskov substitution principle (LSP)](#the-liskov-substitution-principle--lsp-)
+    + [LSP and architecture](#lsp-and-architecture)
+  * [The interface segregation principle (ISP)](#the-interface-segregation-principle--isp-)
+  * [The  dependency inversion principle (DIP)](#the--dependency-inversion-principle--dip-)
+    + [Factories](#factories)
+- [Part IV:  Components principles](#part-iv---components-principles)
 
 ## Foreword
 
@@ -51,9 +58,9 @@ To walk this path requires care and attention, thought and observation, practice
 
 ## Preface
 
-Uncle Bob claims to have taken part and tons of different systems from games to multi-threaded, multi processor, GUI and databases apps and all of them follows the same rules.
+Uncle Bob claims to have taken part and tons of different systems from games to multi-threaded, multi processor, GUI and databases apes and all of them follows the same rules.
 
-He concludes "*the rules of software architecture are independent of every other variable.*" He based on the fact that even though technology has improved drastically in term of new hardware more libraries and new languages, the bases are the same. It's made of the same stuff. it's made of `if` statements, assignments statements, and `while` loops. This changelessness of the code is the reason that the rules o software architecture are so consistent across system types. Nevertheless, one thing has changed: Back then, they didn't know what the rules were.
+He concludes "*the rules of software architecture are independent of every other variable.*" He based on the fact that even though technology has improved drastically in term of new hardware more libraries and new languages, the bases are the same. It's made of the same stuff. It's made of `if` statements, assignments statements, and `while` loops. This changeless NESS of the code is the reason that the rules o software architecture are so consistent across system types. Nevertheless, one thing has changed: Back then, they didn't know what the rules were.
 
 ## Introduction
 
@@ -227,4 +234,68 @@ This means that the Database and de UI can be plugins to the business rules. Thi
 ## Conclusion 
 OO is the ability, through the use of polymorphism, to gain absolute control over every source code dependency in the system. It allows the architect to create a plug-in architecture, in which modules that contain high-level policies are independent of module that contain los-level details. The low-level details are relegated to plug-in modules that can be deployed and developed independently from the modules that contain high-level policies.
 
+# Part III: Design Principles
+
+The SOLID principles tell us how to arrange our functions and data structures into classes, and how those classes should be interconnected. A class is simply a coupled grouping of functions and data. Every software system has such groupings, Wether they are called classes or not. The SOLID principles apply to those groupings.
+
+## S.O.L.I.D
+The goal of the principles is the creation of mid-level software structures that:
+* Tolerate change
+* Are easy to understand
+* Are the basis of components than can be used in many software systems
+
+## Single responsibility principle (SRP)
+Of all of the SOLID principles, the SRP might be the least understood and it might be due to its name. It is too easy for programmers to hear the name and then assume that it means that every module should do just one thing.
+Make no mistake, there is a principle like that. A **function** should do one, and only one, thing. We use that principle when we are refactoring large functions into smaller functions; we use it at the lowest levels. But it is now one of the SOLID principles-- it is not SRP.
+
+A module should be responsible for one and only one actor (An actor being a group of users or stakeholders that will be likely to request changes to the system).
+
+Now, what do we mean by the word "module" ? The simplest definition is just a source file. Most of the time that definition works fine. Some languages and development environments, though, don't use source files to contain their code. In those cases a module is just a cohesive set of functions and data structures.
+
+[SEE THE EXAMPLE OF THE EMPLOYEE ON THE BOOK]
+
+To conclude, the single responsibility principle is about functions and classes but it appears in a different form at two more levels. At the level of components, it becomes the Common Clausure Principle. At the architectural level, it becomes the Axis of change responsible for the creation of Architectural Boundaries.
+
+## The open-closed principle (OCP)
+
+A software should be open for extension but closed for modification
+In other words, the behaviour of a software artifact ought to be extendible, without having to modify that artifact. And this is the most fundamental reason that we study software architecture. A good software architecture would reduce the amount of changed code to the barest minimum. Ideally, zero.
+How?  By properly separating the things that change for different reasons (SRP) and then organizing the dependencies between them (DIP).
+
+Bellow we see an image that's fully explained on the book. I suggest reviewing this example in particularly.
+
+![financial ocp](./images/financial_ocp.png)
+                   
+If component A should be protected from changes in component B, then B depends on A. We wan the *Controller* to be protected from changes in the *Presenters*. We want to protect the *Presenters* from changes in the views. WE wan to protect the *Interactor* from changes in-- well, everything.
+Why should the *Interactor* hold such a privilege position ? Because it contains the business rules, it contains the higher level policies of the application.
+This is how OCP works at the architectural level. Architects separate functionality based on how, why, and when it changes, and then organize that separated functionality into a hierarchy of components. Higher-level components or protected from changes made to the lower-level components.
+
+OCP is the one driving forces behind the architecture of systems. The goal to make te system easy to extend without incurring a high impact of change. This goal is accomplished by partitioning the system into components, and arranging from changes in lower-level components. 
+
+## The Liskov substitution principle (LSP)
+Substitutability is a principle in object-oriented programming stating that, in a computer program, if S is a subtype of T, then objects of type T may be replaced with objects of type S without altering any of the desirable properties of the program.
+### LSP and architecture
+In the earlier ages of OO we thought LSP as a way to guide the use of inheritance, as shown in the previous sections. However, over the years the LSP has morphed into a broader principle of software design that pertains to interface and implementations. We could have several Ruby clases that implement the same interface or we might have a set of services that all respond to the same REST interface.
+In all of these situations, and more, the LSP is applicable because there are users who depend on well-defined interfaces. In conclusion, the LSP can, and should, be extended to the level of architecture. A simple violation of substitutability, can cause a system's architecture to be polluted with significant amount of extra mechanisms.
+
+## The interface segregation principle (ISP)
+The interface-segregation principle (ISP) states that no client should be forced to depend on methods it does not use. In general is harmful to depend on modules that contain more than you need. This is obviously true for source code dependencies that can force unnecessary recompilation and redeployment-- but it is also true at a much higher, architectural level.
+
+## The  dependency inversion principle (DIP)
+The dependency inversion principle (DIP) tells us that the most flexible systems are those in which source code dependencies refer only to abstractions, not to congregations. 
+It is the volatile concrete elements of our system that we want to avoid depending on. Those are the modules  that we are actively developing, and that are undergoing frequent change.
+Interfaces are less volatile that implementations. This implications boils down to a set of very specific coding practices:
+* Don't refer to volatile concrete classes. Refer to abstract interfaces instead.
+* Don't derive from volatile concrete classes.
+* Don't override concrete functions. Concrete functions often require source code when you override those functions, you do not eliminate those dependencies-- indeed you inherit them.
+* Never mentions the name of anything concrete and volatile.
+
+### Factories
+
+To comply to these rules, the creation of volatile concrete objects requires special handling. The Factory pattern is a creational patter that defines an Interface for creating an object and defers instantiation until runtime. It is commonly used when you don't know how many or what type of objects will be needed until during runtime.
+
+
+# Part IV:  Components principles
+
+If SOLID principles tell us how to arrange the bricks into walls and rooms, then the component principles tell us how to arrange the rooms into buildings.
 
