@@ -64,7 +64,9 @@ contre := person{
     contact contactInfo{
         email: "lucas_email@hey.com",
           number: 123123123123,
-    }
+    } // returns a reference
+    
+    contre2 := new(Person) // returns a pointer
 }
 ```
 

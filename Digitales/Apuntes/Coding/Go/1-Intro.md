@@ -52,6 +52,24 @@ func functionName(a, b, c int) string {
 * The `main()` function is called automatically
 * Functions must have return types specified.
 
+Function names that starts with lower case are functions that can't be used outside the file/package and functions that start with upper case can be exported and used outside the file/package
+
+### Invariant arguments
+
+Go functions can take invariant arguments. Let's see an example
+
+```go
+func my_functions (i int, s string, fn func (u int), t ...string) {
+    fmt.Println(i)
+    fn(8)
+    for a, b := range t {
+        fmt.Println("%d - %s", a , b)
+    }
+}
+```
+
+As we can see we can receive **n** strings in the argument *t*.
+
 ### Variable declarations
 
 There are several ways of declaring a variable
