@@ -229,4 +229,3 @@ if __name__ == "__main__":
     bar()
 print("after __name__ guard")
 ```
-

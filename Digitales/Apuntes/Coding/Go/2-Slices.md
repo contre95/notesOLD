@@ -41,5 +41,3 @@ Slices also support a “slice” operator with the syntax `slice[low:high]`.
 l := s[2:5]
 fmt.Println("sl1:", l)
 ```
-
-  

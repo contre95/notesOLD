@@ -5,11 +5,11 @@
   * [Preface](#preface)
   * [Introduction](#introduction)
 - [Part I: What is design and architecture ?](#part-i--what-is-design-and-architecture--)
-    + [The goal](#the-goal)
-  * [A tale of two values](#a-tale-of-two-values)
-    + [Behavior](#behavior)
-    + [Architecture](#architecture)
-    + [Eisenhower Matrix:](#eisenhower-matrix-)
+  + [The goal](#the-goal)
+    * [A tale of two values](#a-tale-of-two-values)
+  + [Behavior](#behavior)
+  + [Architecture](#architecture)
+  + [Eisenhower Matrix:](#eisenhower-matrix-)
 - [Part II: Starting from the brick: Programming paradigms](#part-ii--starting-from-the-brick--programming-paradigms)
   * [Paradigm overview](#paradigm-overview)
     + [Structured](#structured)
@@ -69,8 +69,6 @@ Getting something to work --once-- just isn't that hard. Getting it right is ano
 When you get software right, something magical happens: You don't need hordes of programmers to keep it working. You don't need massive requirements documents and huge issue tracking systems. When software is done right it requires a fraction the human resources to create and maintain.
 
 Unfortunately, It is far more common to fight your way through terrible software designs that it is to enjoy the pleasure of working with a good one.
-
-
 
 # Part I: What is design and architecture ?
 
@@ -183,10 +181,11 @@ Of course, formal, Euclidean style, mathematical proofs is not the only strategy
 That's the nature of scientific theories and laws: They are falsifiable but not provable. Science work by proving statement false, not true. We take as true the statements that, after a long time, we couldn't prove true.
 
 ### Tests
+
 Dijkstra once said: *"Testing shows the presence, not the absence, of bugs".* Functions can be proven to be incorrect with a test, but it can't be proven correct.
 Software development is not like mathematical endeavor, even though is it seems to manipulate mathematical constructs. Rather, software is like science. We show correctness by failing in proving incorrectness.
 
-### Conclusion 
+### Conclusion
 
 In conclusion, structured programming is this ability to create falsifiable units of programming that makes structured programming valuable today.
 At the architecture level, this is why we still consider functional decomposition to be on of our best practices. 
@@ -196,21 +195,29 @@ At the architecture level, this is why we still consider functional decompositio
 The basis of a good architecture is the correct understanding and application of the principles of Object-oriented design (OO)
 OO Design is the combination of data and function but is also explain as "A way to model the real world". 
 The three magic word to explain OO are encapsulation, inheritance and polymorphism.
+
 ### Encapsulation
+
 The encapsulation of data and functions lets us draw a line and bound these together but the idea is certainly not unique to OO. Indeed, we had perfect encapsulation in C. Perfect encapsulation in a non-OO language.
 C#, Java and some OO language it's imposible to separate the declaration and definition of a class. Therefore they abolished the header/implementation like pure `C` ,where you would have a `library.h`, weakening encapsulation.
 For these reasons it is difficult to accept that OO depends on strong encapsulation. In fact, many OO languages have little or no enforced encapsulation at also.
+
 ### Inheritance
+
 Inheritance is simply the redeclaration of a group of variables and functions within an enclosing scope. We could do this with C long time ago or at least we had a trick, but it's not inheritance per se. Moreover, multiple inheritance is considerably more difficult to achieve with such trickery.
 It's fair to say that while OO did not give us something completely brand new, it did make the masquerading of data structures significantly more convenient.
+
 ### Polymorphism
+
 We did have polymorphism in languages before OO. For example in the `getchard()` and `putchar()` which read and write from the STDIN and STDOUT.
 The UNIX operating system requires that every IO devices drivers provide five standard functions: `open`, `close`, `read`, `write` and `seek` and `seek`. The signatures of these functions must be identical for every IO driver
 The bottom line is that polymorphism is an application of pointers to functions. Programmers have been using these to achieve polymorphic behavior since 1940s.
 In other word, OO has provide nothing new.
 The problem with pointers to functions is that they are dangerous. Such use is driven by a set of manual conventions. If any programmer fails to remember these conventions, the resulting bug can be hard to track down and eliminate.
 OO languages eliminate these conventions and, therefore, these dangers. Using OO languages, polymorphism is trivial. That fat provides enormous power that old C programmer could only dream of. On this basis, we can conclude that OO imposes discipline on indirect transfer of control.
+
 ### The power of polymorphism
+
 The power of polymorphism lays on the fact that by implementing functions in, for example, UNIX IO drivers, then we can assure that the program that use those functions does not depend on the source code of those "not-dependencies" (IO Drivers.)
 In short IO drivers have become plugins to out program. The plug-in architecture has been interested to achieve IO devices independence, and has been implemented in almost every operating system since its introduction.
 OO allows the plug-in architecture to be used anywhere, for anything.
@@ -231,7 +238,8 @@ That's the power that OO provides. That's what OO is really all about- at least 
 As an example, you can rearrange the source doe dependencies of your system so that the database and the user interface (UI) depend on the business rules rather than the other way around.
 This means that the Database and de UI can be plugins to the business rules. This means that the business rules never mentions the UI or the Database.
 
-## Conclusion 
+## Conclusion
+
 OO is the ability, through the use of polymorphism, to gain absolute control over every source code dependency in the system. It allows the architect to create a plug-in architecture, in which modules that contain high-level policies are independent of module that contain los-level details. The low-level details are relegated to plug-in modules that can be deployed and developed independently from the modules that contain high-level policies.
 
 # Part III: Design Principles
@@ -239,12 +247,15 @@ OO is the ability, through the use of polymorphism, to gain absolute control ove
 The SOLID principles tell us how to arrange our functions and data structures into classes, and how those classes should be interconnected. A class is simply a coupled grouping of functions and data. Every software system has such groupings, Wether they are called classes or not. The SOLID principles apply to those groupings.
 
 ## S.O.L.I.D
+
 The goal of the principles is the creation of mid-level software structures that:
+
 * Tolerate change
 * Are easy to understand
 * Are the basis of components than can be used in many software systems
 
 ## Single responsibility principle (SRP)
+
 Of all of the SOLID principles, the SRP might be the least understood and it might be due to its name. It is too easy for programmers to hear the name and then assume that it means that every module should do just one thing.
 Make no mistake, there is a principle like that. A **function** should do one, and only one, thing. We use that principle when we are refactoring large functions into smaller functions; we use it at the lowest levels. But it is now one of the SOLID principles-- it is not SRP.
 
@@ -265,7 +276,7 @@ How?  By properly separating the things that change for different reasons (SRP) 
 Bellow we see an image that's fully explained on the book. I suggest reviewing this example in particularly.
 
 ![financial ocp](./images/financial_ocp.png)
-                   
+
 If component A should be protected from changes in component B, then B depends on A. We wan the *Controller* to be protected from changes in the *Presenters*. We want to protect the *Presenters* from changes in the views. WE wan to protect the *Interactor* from changes in-- well, everything.
 Why should the *Interactor* hold such a privilege position ? Because it contains the business rules, it contains the higher level policies of the application.
 This is how OCP works at the architectural level. Architects separate functionality based on how, why, and when it changes, and then organize that separated functionality into a hierarchy of components. Higher-level components or protected from changes made to the lower-level components.
@@ -273,18 +284,24 @@ This is how OCP works at the architectural level. Architects separate functional
 OCP is the one driving forces behind the architecture of systems. The goal to make te system easy to extend without incurring a high impact of change. This goal is accomplished by partitioning the system into components, and arranging from changes in lower-level components. 
 
 ## The Liskov substitution principle (LSP)
+
 Substitutability is a principle in object-oriented programming stating that, in a computer program, if S is a subtype of T, then objects of type T may be replaced with objects of type S without altering any of the desirable properties of the program.
+
 ### LSP and architecture
+
 In the earlier ages of OO we thought LSP as a way to guide the use of inheritance, as shown in the previous sections. However, over the years the LSP has morphed into a broader principle of software design that pertains to interface and implementations. We could have several Ruby clases that implement the same interface or we might have a set of services that all respond to the same REST interface.
 In all of these situations, and more, the LSP is applicable because there are users who depend on well-defined interfaces. In conclusion, the LSP can, and should, be extended to the level of architecture. A simple violation of substitutability, can cause a system's architecture to be polluted with significant amount of extra mechanisms.
 
 ## The interface segregation principle (ISP)
+
 The interface-segregation principle (ISP) states that no client should be forced to depend on methods it does not use. In general is harmful to depend on modules that contain more than you need. This is obviously true for source code dependencies that can force unnecessary recompilation and redeployment-- but it is also true at a much higher, architectural level.
 
 ## The  dependency inversion principle (DIP)
+
 The dependency inversion principle (DIP) tells us that the most flexible systems are those in which source code dependencies refer only to abstractions, not to congregations. 
 It is the volatile concrete elements of our system that we want to avoid depending on. Those are the modules  that we are actively developing, and that are undergoing frequent change.
 Interfaces are less volatile that implementations. This implications boils down to a set of very specific coding practices:
+
 * Don't refer to volatile concrete classes. Refer to abstract interfaces instead.
 * Don't derive from volatile concrete classes.
 * Don't override concrete functions. Concrete functions often require source code when you override those functions, you do not eliminate those dependencies-- indeed you inherit them.
@@ -294,8 +311,66 @@ Interfaces are less volatile that implementations. This implications boils down 
 
 To comply to these rules, the creation of volatile concrete objects requires special handling. The Factory pattern is a creational patter that defines an Interface for creating an object and defers instantiation until runtime. It is commonly used when you don't know how many or what type of objects will be needed until during runtime.
 
-
 # Part IV:  Components principles
 
 If SOLID principles tell us how to arrange the bricks into walls and rooms, then the component principles tell us how to arrange the rooms into buildings.
 
+## Components
+The smallest entities that can be deployed as a single unit. Examples - jar file, DLL, shared library, etc.
+
+They can be combined into single binaries or kept separate as plugins to other binaries.
+Whatever the use-case, good components always retain the ability to be independently deployable and, hence, independently developable.
+
+## Component cohesion
+
+There are three principles of component cohesion.
+
+* REP:  The Reuse/Release equivalence principle
+* CCP:  The Common Closure Principle
+* CRP:  The Common Reuse Principle
+
+
+### The reuse/release equivalence principle
+
+**The granule of reuse is the granule of release** 
+
+We are now living in the age of software reuse -- a fulfillment of one of the oldest promises of the object-oriented model.
+From a software design and architecture point of view, this principle means that the classes and modules that are formed into a component must belong to a cohesive group classes and modules that are grouped together into a component should be releasable together though it is hard to precisely explain the glue that holds these together into a single component. 
+
+The weakness of this principle is more than compensated by the strength of next two principle strongly define this principle in the negative sense.
+
+### The common closure principle
+
+**Gather into component those classes that change for the same reasons and at the same times. Separate into different components those classes that change at different times and for different reasons**
+
+The CCP basically says that a component should not have multiple reasons to change. For most application, maintainability is more important than reusability. If the code in an application must change, you would like all of the changes to occur in one single component. 
+
+#### Similarity with SRP
+The CCP is the component form of the SRP. The SRP tells us to separate methods into different classes, if they change for different reasons. The CCP tells us to separate classes into different components, if they change for different reasons.
+
+### The common reuse principle.
+
+**Don't force users of a component to depend on things they don't need.**
+
+The CRP is yet another principle that helps us to decide which classes and modules should be placed into a component. 
+
+We want to make sure that classes that we put together into a component are inseparable--  that it is impossible to depend on some and not on the others. Otherwise, we will be redeploying more components than is necessary, and wasting significant effort.
+
+#### Relation to ISP.
+
+The CRP is the generic version of the ISP. The ISP advises us not to depend on classes that have methods we don't use. The CRP advises us not to depend on components that have classes we don't use. 
+
+### The tension diagram for component cohesion
+
+The REP and CCP are inclusive principles: Both tend to make components larger. The CRP is an exclusive principle, driving components to be smaller. It is the tension between these principles that good architects seek to resolve. 
+
+![Tensions Cohesion Diagram ](./images/CohesionPrinciplesTensionDiagram.jpg)
+
+An architect who focuses on just the REP and CRP will find that too many component are impacted when simple changes are made.. In contrast, and architect who focuses too strongly on the CCP and REP will cause too many unneeded releases to be generated.
+
+Generally projects tend to start on the right hand of the triangle, where the only sacrifice is reuse. As the project matures, and other projects begin to draw from it, the project will slide over to the left.
+It has more to do with the way that project is developed and used than with what the project actually does.
+
+Moreover, the balance is almost always dynamic. That is the partitioning that is appropriate today might not be  appropriate next year.
+
+# Component Coupling

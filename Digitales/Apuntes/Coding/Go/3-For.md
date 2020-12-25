@@ -27,8 +27,6 @@ for {
     }
 ```
 
-
-
 You can also `continue` to the next iteration of the loop
 
 ```go
@@ -47,4 +45,3 @@ for index,value := range sliceName {
     fmt.Println("Index: ". index, "Value: ", value)
 }
 ```
-
