@@ -21,6 +21,9 @@ Here you go:
 # Backup
 docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql
 
+# Backup create only 
+docker exec CONTAINER /usr/bin/mysqldump -u root --password=toor --no-data --compact polpdb | egrep -v "(^SET|^/\*\!)" | sed 's/ AUTO_INCREMENT=[0-9]*\b//'
+
 # Restore
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
 ```
