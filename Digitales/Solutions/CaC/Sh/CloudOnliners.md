@@ -48,7 +48,7 @@ $> aws sts assume-role --role-arn arn:aws:iam::123456789:role/TestAssumeRole --r
 Run the following command's output to sh.
 
 ```shell
-$> aws sts assume-role <ROLE_ARN> --role-session-name PiruloeSssion > keys.json.tmp && cat keys.json.tmp | jq '.Credentials.SecretAccessKey' | awk '{print "export AWS_SECRET_ACCESS_KEY=" $1}' && cat keys.json.tmp | jq '.Credentials.AccessKeyId' | awk '{print "export AWS_ACCESS_KEY_ID=" $1}' && cat keys.json.tmp | jq '.Credentials.SessionToken' | awk '{print "export AWS_SESSION_TOKEN=" $1}' ; echo "export AWS_SECURITY_TOKEN=" ; rm -f keys.json.tmp
+$> aws sts assume-role --role-arn <ROLE_ARN> --role-session-name PiruloeSssion > keys.json.tmp && cat keys.json.tmp | jq '.Credentials.SecretAccessKey' | awk '{print "export AWS_SECRET_ACCESS_KEY=" $1}' && cat keys.json.tmp | jq '.Credentials.AccessKeyId' | awk '{print "export AWS_ACCESS_KEY_ID=" $1}' && cat keys.json.tmp | jq '.Credentials.SessionToken' | awk '{print "export AWS_SESSION_TOKEN=" $1}' ; echo "export AWS_SECURITY_TOKEN=" ; rm -f keys.json.tmp
 ```
 
 ### Google Cloud Platform
@@ -72,5 +72,3 @@ gcloud compute instances list --project=project-name --format=json --filter="cre
 ```sh
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
-
- 
