@@ -13,7 +13,7 @@
 ```mermaid
 graph LR
     A(Dispositivos)
-    A-->B(de Red)-->F{{Mode, Swutch, Routers, Accesspoints, Bridge, etc.}}
+    A-->B(de Red)-->F{{Mode, Switch, Routers, Accesspoints, Bridge, etc.}}
     A-->C(de Usuario)
     C-->D(Cliente)
     C-->E(Servidor)-->R{{Clasificación de redes por relación de func.}}
