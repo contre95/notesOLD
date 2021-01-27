@@ -21,7 +21,7 @@ As you can see we defined a new type `person`. Then we would be able to create d
 ```go
 func main() {
     // Option 1
-    lucas := person{"Lucas", "Contreras",105})
+    lucas := person{"Lucas", "Contreras",105}
    // Option 2
     lucas := person{
         firstName:  "Lucas", 
