@@ -373,4 +373,60 @@ It has more to do with the way that project is developed and used than with what
 
 Moreover, the balance is almost always dynamic. That is the partitioning that is appropriate today might not be  appropriate next year.
 
-# Component Coupling
+## Component Coupling
+
+### The Acyclic dependencies principle
+
+*Allow no cycles in the component dependency graph*
+
+Have you ever worked all day, then go home, only to arrive the next morning to find that your stuff no longer works ? This is because someone stayed later than you and changes something you depend on! I call this "The morning after syndrome"
+
+Over the last two decades only two solutions to this problem have evolved. The first is the "Weekly build" and "The Acyclic dependency principle"
+
+#### The weekly build
+
+Used to be common in medium-sized projects. It works like this: All the developers ignore each other the first four days of the week. Then, on Friday, they integrate all their changes and build the system.
+Unfortunately, as the project grows, it becomes less feasible to finish integrating the project on Friday since the integration time increase with the project size.
+
+#### Eliminating dependency cycles
+
+The solution to this is to partition the development environment into releasable components. The components become units of work that can be the responsibility of a single developer, or a team of developers. Releases are donde by components now. Changes made to one component do not need to have an immediate affect on other teams. Each team can decide for itself when to adapt its own components to new releases of the components. Moreover, integration happens in small increments.
+For this strategy to work, there can be no cycles in the component dependency graph. It's a DAG (Directed Acyclic Graph).
+Whenever we find a cyclic on the dependency graph (as seen in the figure between Entities and Authorizer) we should make sure to remove it.
+![Dependency Graph](./images/DependencyGraph.jpg)
+To break the cycle we can take two approaches.
+
+1. Apply the Dependency Inversion Principle (DIP). So we can make Authorizer depend on Entities and not the other way around.
+![DIP for Dependency Cycle](./images/DependencyGraphDIP.jpeg)
+
+2. Create a new component that both Authorizer and Entities depend on.
+![New Component for Dependency Cycle](./images/DependencyGraphNewComponent.jpeg)
+
+### TOP-DOWN Design
+The component dependency graph structure cannot be designed from the top down. It is not one of the first things about the system that is designed, but rather evolves as the system grows and changes.
+In fact, the component dependency diagrams have very little to do with describing the function of the application. Instead, they are a map to the buildability and maintainability of the application. If there's no software to build or maintain, then, there's no need for such diagram.
+
+### The stable dependencies principle
+
+*Depend in the direction of stability*
+
+Design cannot be completely static. Some volatility is necessary if the design is to be maintain. By conforming to the **Common closure principle (CCP)**, we create component that are sensitive to certain kinds of changes bu immune to others.
+By conforming to the **Stable dependencies principle (SDP)** we ensure that module that are intended to be easy to change are not depended on by modules that are harder to change.
+
+### Stability
+
+Stability is related to the amount of work required to make a change. One way to make a software component difficult to change, is to make lots of other software depend on it.
+The way we measure this stability is by counting the number of dependencies that enter and leave that component.
+**Fan-in:** Incoming dependencies
+**Fan-out:** Outgoing dependencies
+**I(Instability):** Fan-in / (Fan-in+ Fan-out)
+
+Not all components should be stable, if all components in a system were maximally stable, the system would be unchangeable. We wan to design system with components that are stable and components that are unstable. 
+
+### The stable abstraction principle
+*A component should be as abstract as it is stable*
+
+
+
+
+
