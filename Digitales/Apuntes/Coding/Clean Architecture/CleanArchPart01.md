@@ -1,42 +1,53 @@
 # Clean Architecture
 
-- [Clean Architecture](#clean-architecture)
-  * [Foreword](#foreword)
-  * [Preface](#preface)
-  * [Introduction](#introduction)
-- [Part I: What is design and architecture ?](#part-i--what-is-design-and-architecture--)
-  + [The goal](#the-goal)
-    * [A tale of two values](#a-tale-of-two-values)
-  + [Behavior](#behavior)
-  + [Architecture](#architecture)
-  + [Eisenhower Matrix:](#eisenhower-matrix-)
-- [Part II: Starting from the brick: Programming paradigms](#part-ii--starting-from-the-brick--programming-paradigms)
-  * [Paradigm overview](#paradigm-overview)
-    + [Structured](#structured)
-    + [Object Oriented](#object-oriented)
-    + [Functional](#functional)
-    + [Food for thought](#food-for-thought)
-    + [Conclusion](#conclusion)
-  * [Structured Programming](#structured-programming)
-    + [Tests](#tests)
-    + [Conclusion](#conclusion-1)
-  * [Object Oriented Programming](#object-oriented-programming)
-    + [Encapsulation](#encapsulation)
-    + [Inheritance](#inheritance)
-    + [Polymorphism](#polymorphism)
-    + [The power of polymorphism](#the-power-of-polymorphism)
-    + [Dependency Inversion](#dependency-inversion)
-  * [Conclusion](#conclusion-2)
-- [Part III: Design Principles](#part-iii--design-principles)
-  * [S.O.L.I.D](#solid)
-  * [Single responsibility principle (SRP)](#single-responsibility-principle--srp-)
-  * [The open-closed principle (OCP)](#the-open-closed-principle--ocp-)
-  * [The Liskov substitution principle (LSP)](#the-liskov-substitution-principle--lsp-)
-    + [LSP and architecture](#lsp-and-architecture)
-  * [The interface segregation principle (ISP)](#the-interface-segregation-principle--isp-)
-  * [The  dependency inversion principle (DIP)](#the--dependency-inversion-principle--dip-)
-    + [Factories](#factories)
-- [Part IV:  Components principles](#part-iv---components-principles)
+1. [Foreword](#foreword)
+2. [Preface](#preface)
+3. [Introduction](#introduction)
+	1. [The goal](#the-goal)
+4. [A tale of two values](#a-tale-of-two-values)
+	1. [Behavior](#behavior)
+	2. [Architecture](#architecture)
+	3. [Eisenhower Matrix:](#eisenhower-matrix)
+5. [Paradigm overview](#paradigm-overview)
+	1. [Structured](#structured)
+	2. [Object Oriented](#object-oriented)
+	3. [Functional](#functional)
+	4. [Food for thought](#food-for-thought)
+	5. [Conclusion](#conclusion)
+6. [Structured Programming](#structured-programming)
+	1. [Tests](#tests)
+	2. [Conclusion](#conclusion)
+7. [Object Oriented Programming](#object-oriented-programming)
+	1. [Encapsulation](#encapsulation)
+	2. [Inheritance](#inheritance)
+	3. [Polymorphism](#polymorphism)
+	4. [The power of polymorphism](#the-power-of-polymorphism)
+	5. [Dependency Inversion](#dependency-inversion)
+8. [Conclusion](#conclusion)
+9. [S.O.L.I.D](#solid)
+10. [Single responsibility principle (SRP)](#single-responsibility-principle-srp)
+11. [The open-closed principle (OCP)](#the-open-closed-principle-ocp)
+12. [The Liskov substitution principle (LSP)](#the-liskov-substitution-principle-lsp)
+	1. [LSP and architecture](#lsp-and-architecture)
+13. [The interface segregation principle (ISP)](#the-interface-segregation-principle-isp)
+14. [The  dependency inversion principle (DIP)](#the--dependency-inversion-principle-dip)
+	1. [Factories](#factories)
+15. [Components](#components)
+16. [Component cohesion](#component-cohesion)
+	1. [The reuse/release equivalence principle](#the-reuserelease-equivalence-principle)
+	2. [The common closure principle](#the-common-closure-principle)
+		1. [Similarity with SRP](#similarity-with-srp)
+	3. [The common reuse principle.](#the-common-reuse-principle)
+		1. [Relation to ISP.](#relation-to-isp)
+	4. [The tension diagram for component cohesion](#the-tension-diagram-for-component-cohesion)
+17. [Component Coupling](#component-coupling)
+	1. [The Acyclic dependencies principle](#the-acyclic-dependencies-principle)
+		1. [The weekly build](#the-weekly-build)
+		2. [Eliminating dependency cycles](#eliminating-dependency-cycles)
+	2. [TOP-DOWN Design](#top-down-design)
+	3. [The stable dependencies principle](#the-stable-dependencies-principle)
+	4. [Stability](#stability)
+	5. [The stable abstraction principle](#the-stable-abstraction-principle)
 
 ## Foreword
 
@@ -426,7 +437,21 @@ Not all components should be stable, if all components in a system were maximall
 ### The stable abstraction principle
 *A component should be as abstract as it is stable*
 
+Software that encapsulates hight level policies should go in stable components while unstable components should contain volatile software.
+The answer is found in the OCP. This principle tells us that it is possible and desirable to create classes that are flexible enough to be
+extended without requiring modification. Which kind of classes conform to this
+principle? Abstract classes.
 
+The Stable Abstractions Principle (SAP) sets up a relationship between stability and
+abstractness. On the one hand, it says that a stable component should also be abstract so
+that its stability does not prevent it from being extended. On the other hand, it says that
+an unstable component should be concrete since it its instability allows the concrete
+code within it to be easily changed. It should consist of interfaces and abstract classes
+so that it can be extended.
 
+The SAP and the SDP combined amount to the DIP for components. This is true because
+the SDP says that dependencies should run in the direction of stability, and the SAP says
+that stability implies abstraction. Thus dependencies run in the direction of abstraction
 
+# Architecture
 
