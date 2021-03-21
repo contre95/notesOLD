@@ -319,6 +319,7 @@ Interfaces are less volatile that implementations. This implications boils down 
 * Never mentions the name of anything concrete and volatile.
 
 ### Factories
+this is the posta dd
 
 To comply to these rules, the creation of volatile concrete objects requires special handling. The Factory pattern is a creational patter that defines an Interface for creating an object and defers instantiation until runtime. It is commonly used when you don't know how many or what type of objects will be needed until during runtime.
 
@@ -454,4 +455,68 @@ the SDP says that dependencies should run in the direction of stability, and the
 that stability implies abstraction. Thus dependencies run in the direction of abstraction
 
 # Architecture
+
+First if all, a software architect is a programmer; and continues to be a programmer. Never fall into the lie that a software architect is not a programmer.
+The architecture of a software system is the shape given to that system by those who build it. The form of that shape is in the division of that system into components, the arrangement of those components, and the ways in which those components communicate with each other.
+
+*The strategy behind that facilitation is to leave as many options open as possible, for as long as possible*
+
+The primary goal of architecture is to preserve the life cycle of the system. Te ultimate goal is to minimize the lifetime cost of the system and to maximize programmer productivity.
+
+## Development
+
+A group of 5 developers can quite effectively work together to develop a monolithic system without well-defined components or interfaces, on the other hand, a system developed by 5 different teams can not make progress unless the system is divided into well define components.
+
+Such a component-per-team architecture is not likely to be the best architecture for deployment, operation, and maintenance of the system. Nevertheless, it is the architecture that a group of team will gravitate toward if they are driven solely by development schedule.
+
+## Deployment
+
+A goal of software architecture should be to make a system that can be easily deployed with a single action.
+Unfortunately, deployment strategy is seldom considered during initial development. This leads to system very easy to deploy but very difficult to develop.
+
+## Operation
+
+The impact of architect on system operation tends to be les dramatic than the impact of architecture on development, deployment, and maintenance. Almost any operational difficulty can be resolved by throwing more hardware at the system without drastically impacting software architecture.
+Architecture should reveal operation. The architecture of the system should elevate the use cases, the visible landmark for the developers. This simplifies the understanding of the system and, therefore, greatly aids in development and maintenance.
+
+## Maintenance
+The never-ending parade of new features and the inevitable trail of defects and corrections consume vast amounts of human resources.
+The primary cost of maintenance is in spelunking and risk. Spelunking is the cost of digging through the existing software, trying to determine the best place and the best strategy to add a new feature or to repair a defect. While making such changes, the likelihood of creating inadvertent defects is always there, adding to the cost of risk.
+
+## Keeping option open
+As we described in an earlier chapter, software has two types of value: the value of its behavior and the value of its structure. The second of these is the greater of the two because it is this value that makes software soft.
+
+All software systems can be decomposed into two major elements: policy and details. The policy element embodies all the business rules and procedures. The policy is where the true value of the system lives.
+
+The details are those things that are necessary to enable humans, other systems, and programmers to communicate with the policy, but that do not impact the behavior of the policy at all. They include IO devices, databases, web systems, servers, frameworks, communication protocols, and so forth. 
+
+The goal of the architect is to create a shape for the system that recognizes policy as the most essential element of the system while making the details irrelevant to that policy.
+ 
+• It is not necessary to choose a database system in the early days of 
+development, because the high-level policy should not care which kind of 
+database will be used. Indeed, if the architect is careful, the high-level 
+policy will not care if the database is relational, distributed, hierarchical, or 
+just plain flat files.
+ 
+• It is not necessary to choose a web server early in development, because the 
+high-level policy should not know that it is being delivered over the web. If 
+the high-level policy is unaware of HTML, AJAX, JSP, JSF, or any of the 
+rest of the alphabet soup of web development, then you don’t need to 
+decide which web system to use until much later in the project. Indeed, you 
+don’t even have to decide if the system will be delivered over the web. 
+ 
+• It is not necessary to adopt REST early in development, because the high-
+level policy should be agnostic about the interface to the outside world. 
+Nor is it necessary to adopt a micro-services framework, or a SOA 
+framework. Again, the high-level policy should not care about these things.
+ 
+• It is not necessary to adopt a dependency injection framework early in 
+development, because the high-level policy should not care how 
+dependencies are resolved.
+*A good architect pretends that the desicion has not been made and, and shapes the system such that those desision can still be deferred or changed for as long time as possible.*
+
+*A good architect maximize the number of decisions not made*
+
+## Conclusion
+Good architects carefully separate details from policy, and then decouple the policy from the details so thoroughly that the policy has no knowledge of the details and does not depend on the details in any way. Good architects design the policy so that decisions about the details can be delayed and deferred as long as possible.
 
