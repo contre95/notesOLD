@@ -1,53 +1,5 @@
 # Clean Architecture
 
-1. [Foreword](#foreword)
-2. [Preface](#preface)
-3. [Introduction](#introduction)
-	1. [The goal](#the-goal)
-4. [A tale of two values](#a-tale-of-two-values)
-	1. [Behavior](#behavior)
-	2. [Architecture](#architecture)
-	3. [Eisenhower Matrix:](#eisenhower-matrix)
-5. [Paradigm overview](#paradigm-overview)
-	1. [Structured](#structured)
-	2. [Object Oriented](#object-oriented)
-	3. [Functional](#functional)
-	4. [Food for thought](#food-for-thought)
-	5. [Conclusion](#conclusion)
-6. [Structured Programming](#structured-programming)
-	1. [Tests](#tests)
-	2. [Conclusion](#conclusion)
-7. [Object Oriented Programming](#object-oriented-programming)
-	1. [Encapsulation](#encapsulation)
-	2. [Inheritance](#inheritance)
-	3. [Polymorphism](#polymorphism)
-	4. [The power of polymorphism](#the-power-of-polymorphism)
-	5. [Dependency Inversion](#dependency-inversion)
-8. [Conclusion](#conclusion)
-9. [S.O.L.I.D](#solid)
-10. [Single responsibility principle (SRP)](#single-responsibility-principle-srp)
-11. [The open-closed principle (OCP)](#the-open-closed-principle-ocp)
-12. [The Liskov substitution principle (LSP)](#the-liskov-substitution-principle-lsp)
-	1. [LSP and architecture](#lsp-and-architecture)
-13. [The interface segregation principle (ISP)](#the-interface-segregation-principle-isp)
-14. [The  dependency inversion principle (DIP)](#the--dependency-inversion-principle-dip)
-	1. [Factories](#factories)
-15. [Components](#components)
-16. [Component cohesion](#component-cohesion)
-	1. [The reuse/release equivalence principle](#the-reuserelease-equivalence-principle)
-	2. [The common closure principle](#the-common-closure-principle)
-		1. [Similarity with SRP](#similarity-with-srp)
-	3. [The common reuse principle.](#the-common-reuse-principle)
-		1. [Relation to ISP.](#relation-to-isp)
-	4. [The tension diagram for component cohesion](#the-tension-diagram-for-component-cohesion)
-17. [Component Coupling](#component-coupling)
-	1. [The Acyclic dependencies principle](#the-acyclic-dependencies-principle)
-		1. [The weekly build](#the-weekly-build)
-		2. [Eliminating dependency cycles](#eliminating-dependency-cycles)
-	2. [TOP-DOWN Design](#top-down-design)
-	3. [The stable dependencies principle](#the-stable-dependencies-principle)
-	4. [Stability](#stability)
-	5. [The stable abstraction principle](#the-stable-abstraction-principle)
 
 ## Foreword
 
@@ -613,11 +565,17 @@ By the same token, when you are separating layers horizontally, you might notice
 Back to modes. There are many ways to decouple layers and use cases. They can be decoupled at the source code level, at the binary code (deployment)
 level, and at the execution unit (service) level.
 
-• **Source level**. We can control the dependencies between source code modules so that changes to one module do not force changes or recompilation of others (e.g., Ruby Gems). In this decoupling mode the components all execute in the same address space, and communicate with each other using simple function calls. There is a single executable loaded into computer memory. People often call this a monolithic structure
+• **Source level**. 
 
-• **Deployment level**. We can control the dependencies between deployable units such as jar files, DLLs, or shared libraries, so that changes to the source code in one module do not force others to be rebuilt and redeployed. Many of the components may still live in the same address space, and communicate through function calls. Other components may live in other processes in the same processor, and communicate through interprocess communications, sockets, or shared memory. The important thing here is that the decoupled components are partitioned into independently deployable units such as jar files, Gem files, or DLLs. 
+We can control the dependencies between source code modules so that changes to one module do not force changes or recompilation of others (e.g., Ruby Gems). In this decoupling mode the components all execute in the same address space, and communicate with each other using simple function calls. There is a single executable loaded into computer memory. People often call this a monolithic structure
 
-• **Service level**. We can reduce the dependencies down to the level of data structures, and communicate solely through network packets such that every execution unit is entirely independent of source and binary changes to others (e.g., services or micro-services) 
+• **Deployment level**.
+
+We can control the dependencies between deployable units such as jar files, DLLs, or shared libraries, so that changes to the source code in one module do not force others to be rebuilt and redeployed. Many of the components may still live in the same address space, and communicate through function calls. Other components may live in other processes in the same processor, and communicate through interprocess communications, sockets, or shared memory. The important thing here is that the decoupled components are partitioned into independently deployable units such as jar files, Gem files, or DLLs. 
+
+• **Service level**.
+
+We can reduce the dependencies down to the level of data structures, and communicate solely through network packets such that every execution unit is entirely independent of source and binary changes to others (e.g., services or micro-services) 
 
 What is the best mode to use? The answer is that it’s hard to know which mode is best during the early phases of a project. Indeed, as the project matures, the optimal mode may change.
 
@@ -647,5 +605,69 @@ The classes and interfaces in this diagram are symbolic. In a real application, 
 ![Database Boundaries](./images/db_boundaries.png)
 
 Note the two arrows leaving the *DatabaseAccess* class. Those two arrows point away from the *DatabaseAccess* class. That means that none of these classes knows that the *DatabaseAccess* class exists.
-The BusinessRules do not know about the Database. This implies that the DatabaseInterface classes live in the BusinessRules component, while the DatabaseAccess classes live in the Database component.
+The *BusinessRules* do not know about the Database. This implies that the *DatabaseInterface* classes live in the *BusinessRules* component, while the *DatabaseAccess* classes live in the Database component.
+
+## Plugin Architecture
+
+The history history of software development technology is the story of how to conveniently create plugins to establish a scalable and maintainable system architecture. The core business rules are kept separate from, and independent of, those components that are either optional or that can be implemented in many different forms 
+![Plugin Arq](./images/plugin_arch.png)
+Because the user interface in this design is considered to be a plugin, we have made it possible to plug in many different kinds of user interfaces. They could be web based, client/server based, SOA based, Console based, or based on any other kind of user interface technology 
+
+## Conclusion
+
+To draw boundary lines in a software architecture, you first partition the system into components. Some of those components are core business rules; others are plugins that contain necessary functions that are not directly related to the core business. Then you arrange the code in those components such that the arrows between them point in one direction—toward the core business.
+
+You should recognize this as an application of the Dependency Inversion Principle and the Stable Abstractions Principle. Dependency arrows are arranged to point from lower-level details to higher-level abstractions. 
+
+## Boundary Anatomy
+
+The architecture of a system is defined by a set of software components and the boundaries that separate them. Those boundaries come in many different forms. In this chapter we’ll look at some of the most common.
+
+## Boundary crossing
+
+At runtime, a boundary crossing is nothing more than a function on one side of the boundary calling a function on the other side and passing along some data. The trick to creating an appropriate boundary crossing is to manage the source code dependencies.
+
+## The dreaded monolith
+
+The simplest and most common of the architectural boundaries has no strict physical representation. It is simply a disciplined segregation of functions and data within a single processor and a single address space. In a previous chapter, I called this the source-level decoupling mode.
+
+The fact that the boundaries are not visible during the deployment of a monolith does not mean that they are not present and meaningful. Even when statically linked into a single executable, the ability to independently develop and marshal the various components for final assembly is immensely valuable. 
+
+Such architectures almost always depend on some kind of dynamic polymorphism to manage their internal dependencies. This is one of the reasons that object-oriented development has become such an important paradigm in recent decades.
+
+The simplest possible boundary crossing is a function call from a low-level client to a higher-level service. Both the runtime dependency and the compile-time dependency point in the same direction, toward the higher-level component.
+
+Even in a monolithic, statically linked executable, this kind of disciplined partitioning can greatly aid the job of developing, testing, and deploying the project. Teams can work independently of each other on their own components without treading on each other’s toes. High-level components remain independent of lower-level details.
+
+Communications between components in a monolith are very fast and inexpensive. They are typically just function calls. Consequently, communications across source-level decoupled boundaries can be very chatty. Since the deployment of monoliths usually requires compilation and static linking, components in these systems are typically delivered as source code.
+
+## Deployments components
+
+Deployment does not involve compilation. Instead, the components are delivered in binary, or some equivalent deployable form. This is the deployment-level decoupling mode. The act of deployment is simply the gathering of these deployable units together in some convenient form, such as a WAR file, or even just a directory.
+
+With that one exception, deployment-level components are the same as monoliths. The functions generally all exist in the same processor and address space. The strategies for segregating the components and managing their dependencies are the same.
+
+## Threads
+
+Both monoliths and deployment components can make use of threads. Threads are not architectural boundaries or units of deployment, but rather a way to organize the schedule and order of execution. They may be wholly contained within a component, or spread across many components.
+
+## Local Processes
+
+A much stronger physical architectural boundary is the local process. A local process is typically created from the command line or an equivalent system call. Local processes run in the same processor, or in the same set of processors within a multicore, but run in separate address spaces. Memory protection generally prevents such processes from sharing memory, although shared memory partitions are often used.
+
+Most often, local processes communicate with each other using sockets, or some other kind of operating system communications facility such as mailboxes or message queues. Each local process may be a statically linked monolith, or it may be composed of dynamically linked deployment components.
+
+Think of a local process as a kind of uber-component: The process consists of lower-level components that manage their dependencies through dynamic polymorphism 
+
+Communication across local process boundaries involve operating system calls, data marshaling and decoding, and interprocess context switches, which are moderately expensive. Chattiness should be carefully limited
+
+## Service
+
+The strongest boundary is a service. A service is a process, generally started from the command line or through an equivalent system call. Services do not depend on their physical location. Communications across service boundaries are very slow compared to function calls. 
+
+## Conclusion
+
+Most systems, other than monoliths, use more than one boundary strategy. A system that makes use of service boundaries may also have some local process boundaries. Indeed, a service is often just a facade for a set of interacting local processes. A service, or a local process, will almost certainly be either a monolith composed of source code components or a set of dynamically linked deployment components.
+
+This means that the boundaries in a system will often be a mixture of local chatty boundaries and boundaries that are more concerned with latency 
 
