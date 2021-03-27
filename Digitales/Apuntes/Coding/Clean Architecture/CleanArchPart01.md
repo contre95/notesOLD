@@ -132,16 +132,9 @@ What does this has to do with architecture ? We use polymorphism as the mechanis
 
 ## Structured Programming
 
-Dijkstra realized that programming is hard and that programmer don't do it very well. A program of any complexity contains too many details for a human brain to manage without help. 
-To solve this issue, Dijkstra tried to apply the mathematical discipline of proof. His vision was the construction of Euclidean hierarchy of postulates, theorems, corollaries, and lemmas.
-Programmer would use proven structures, and tie them together with code that they would prove correct themselves.
-He discovered that certain uses of `goto` statements prevent modules  from being decomposed recursively into smaller units therefore preventing the use of the divide-and-conquer approach necessary for reasonable proofs.
-However, other uses of goto didn't have this problem. He realized that this *good* uses of `goto` corresponds to simple selection and iteration control structures.
-All programs can be constructed with three structures: Sequence, Selection and Iteration. This very same structures made a program provable.
+Dijkstra realized that programming is hard and that programmer don't do it very well. A program of any complexity contains too many details for a human brain to manage without help.  To solve this issue, Dijkstra tried to apply the mathematical discipline of proof. His vision was the construction of Euclidean hierarchy of postulates, theorems, corollaries, and lemmas. Programmer would use proven structures, and tie them together with code that they would prove correct themselves. He discovered that certain uses of `goto` statements prevent modules  from being decomposed recursively into smaller units therefore preventing the use of the divide-and-conquer approach necessary for reasonable proofs. However, other uses of goto didn't have this problem. He realized that this *good* uses of `goto` corresponds to simple selection and iteration control structures. All programs can be constructed with three structures: Sequence, Selection and Iteration. This very same structures made a program provable.
 
-The Euclidean hierarchy of theorems was never built. And programmers never saw the benefits of working through the laborious process of formally proving each and every little function correct.
-Of course, formal, Euclidean style, mathematical proofs is not the only strategy for proving something correct. Another highly successful strategy is the scientific method. Proving thins incorrect.
-That's the nature of scientific theories and laws: They are falsifiable but not provable. Science work by proving statement false, not true. We take as true the statements that, after a long time, we couldn't prove true.
+The Euclidean hierarchy of theorems was never built. And programmers never saw the benefits of working through the laborious process of formally proving each and every little function correct. Of course, formal, Euclidean style, mathematical proofs is not the only strategy for proving something correct. Another highly successful strategy is the scientific method. Proving thins incorrect. That's the nature of scientific theories and laws: They are falsifiable but not provable. Science work by proving statement false, not true. We take as true the statements that, after a long time, we couldn't prove true. 
 
 ### Tests
 
@@ -155,9 +148,7 @@ At the architecture level, this is why we still consider functional decompositio
 
 ## Object Oriented Programming
 
-The basis of a good architecture is the correct understanding and application of the principles of Object-oriented design (OO)
-OO Design is the combination of data and function but is also explain as "A way to model the real world". 
-The three magic word to explain OO are encapsulation, inheritance and polymorphism.
+The basis of a good architecture is the correct understanding and application of the principles of Object-oriented design (OO) OO Design is the combination of data and function but is also explain as "A way to model the real world".  The three magic word to explain OO are encapsulation, inheritance and polymorphism.
 
 ### Encapsulation
 
@@ -172,12 +163,9 @@ It's fair to say that while OO did not give us something completely brand new, i
 
 ### Polymorphism
 
-We did have polymorphism in languages before OO. For example in the `getchard()` and `putchar()` which read and write from the STDIN and STDOUT.
-The UNIX operating system requires that every IO devices drivers provide five standard functions: `open`, `close`, `read`, `write` and `seek` and `seek`. The signatures of these functions must be identical for every IO driver
-The bottom line is that polymorphism is an application of pointers to functions. Programmers have been using these to achieve polymorphic behavior since 1940s.
-In other word, OO has provide nothing new.
-The problem with pointers to functions is that they are dangerous. Such use is driven by a set of manual conventions. If any programmer fails to remember these conventions, the resulting bug can be hard to track down and eliminate.
-OO languages eliminate these conventions and, therefore, these dangers. Using OO languages, polymorphism is trivial. That fat provides enormous power that old C programmer could only dream of. On this basis, we can conclude that OO imposes discipline on indirect transfer of control.
+We did have polymorphism in languages before OO. For example in the `getchard()` and `putchar()` which read and write from the STDIN and STDOUT. The UNIX operating system requires that every IO devices drivers provide five standard functions: `open`, `close`, `read`, `write` and `seek` and `seek`. The signatures of these functions must be identical for every IO driver The bottom line is that polymorphism is an application of pointers to functions. Programmers have been using these to achieve polymorphic behavior since 1940s. In other word, OO has provide nothing new.
+
+The problem with pointers to functions is that they are dangerous. Such use is driven by a set of manual conventions. If any programmer fails to remember these conventions, the resulting bug can be hard to track down and eliminate. OO languages eliminate these conventions and, therefore, these dangers. Using OO languages, polymorphism is trivial. That fat provides enormous power that old C programmer could only dream of. On this basis, we can conclude that OO imposes discipline on indirect transfer of control. 
 
 ### The power of polymorphism
 
@@ -193,11 +181,7 @@ When polymorphism brought into play, something very different can happen.
 
 ![di](./images/dependency_inversion.png)
 
-In `Figure 1` we can see the classical approach where Flow of control goes on the same direction as the dependency. `Figure 2`, shows us how *Object A* a high-level function calls a functions in *Object B* a middle-level function. The fact that it calls this function through the interface is a source code contrivance. At runtime, the interface doesn't exist. *Object A* simply calls the function within *Object B*
-Notice that here the flow of control still goes from *Object A* the high-level function to the low-level function *Object B*.
-The fact that OO languages provide safe and convenient polymorphism means that any source code dependency, no matter where it is, can be inverted by inserting an interface between them.
-That's the power that OO provides. That's what OO is really all about- at least from an architect point of view.
-
+In `Figure 1` we can see the classical approach where Flow of control goes on the same direction as the dependency. `Figure 2`, shows us how *Object A* a high-level function calls a functions in *Object B* a middle-level function. The fact that it calls this function through the interface is a source code contrivance. At runtime, the interface doesn't exist. *Object A* simply calls the function within *Object B* Notice that here the flow of control still goes from *Object A* the high-level function to the low-level function *Object B*. The fact that OO languages provide safe and convenient polymorphism means that any source code dependency, no matter where it is, can be inverted by inserting an interface between them. That's the power that OO provides. That's what OO is really all about- at least from an architect point of view. 
 As an example, you can rearrange the source doe dependencies of your system so that the database and the user interface (UI) depend on the business rules rather than the other way around.
 This means that the Database and de UI can be plugins to the business rules. This means that the business rules never mentions the UI or the Database.
 
@@ -261,9 +245,7 @@ The interface-segregation principle (ISP) states that no client should be forced
 
 ## The  dependency inversion principle (DIP)
 
-The dependency inversion principle (DIP) tells us that the most flexible systems are those in which source code dependencies refer only to abstractions, not to congregations. 
-It is the volatile concrete elements of our system that we want to avoid depending on. Those are the modules  that we are actively developing, and that are undergoing frequent change.
-Interfaces are less volatile that implementations. This implications boils down to a set of very specific coding practices:
+The dependency inversion principle (DIP) tells us that the most flexible systems are those in which source code dependencies refer only to abstractions, not to congregations.  It is the volatile concrete elements of our system that we want to avoid depending on. Those are the modules  that we are actively developing, and that are undergoing frequent change. Interfaces are less volatile that implementations. This implications boils down to a set of very specific coding practices: 
 
 * Don't refer to volatile concrete classes. Refer to abstract interfaces instead.
 * Don't derive from volatile concrete classes.
@@ -379,8 +361,8 @@ By conforming to the **Stable dependencies principle (SDP)** we ensure that modu
 
 ### Stability
 
-Stability is related to the amount of work required to make a change. One way to make a software component difficult to change, is to make lots of other software depend on it.
-The way we measure this stability is by counting the number of dependencies that enter and leave that component.
+Stability is related to the amount of work required to make a change. One way to make a software component difficult to change, is to make lots of other software depend on it. The way we measure this stability is by counting the number of dependencies that enter and leave that component.
+
 **Fan-in:** Incoming dependencies
 **Fan-out:** Outgoing dependencies
 **I(Instability):** Fan-in / (Fan-in+ Fan-out)
@@ -390,21 +372,11 @@ Not all components should be stable, if all components in a system were maximall
 ### The stable abstraction principle
 *A component should be as abstract as it is stable*
 
-Software that encapsulates hight level policies should go in stable components while unstable components should contain volatile software.
-The answer is found in the OCP. This principle tells us that it is possible and desirable to create classes that are flexible enough to be
-extended without requiring modification. Which kind of classes conform to this
-principle? Abstract classes.
+Software that encapsulates hight level policies should go in stable components while unstable components should contain volatile software. The answer is found in the OCP. This principle tells us that it is possible and desirable to create classes that are flexible enough to be extended without requiring modification. Which kind of classes conform to this principle? Abstract classes.
 
-The Stable Abstractions Principle (SAP) sets up a relationship between stability and
-abstractness. On the one hand, it says that a stable component should also be abstract so
-that its stability does not prevent it from being extended. On the other hand, it says that
-an unstable component should be concrete since it its instability allows the concrete
-code within it to be easily changed. It should consist of interfaces and abstract classes
-so that it can be extended.
+The Stable Abstractions Principle (SAP) sets up a relationship between stability and abstractness. On the one hand, it says that a stable component should also be abstract so that its stability does not prevent it from being extended. On the other hand, it says that an unstable component should be concrete since it its instability allows the concrete code within it to be easily changed. It should consist of interfaces and abstract classes so that it can be extended.
 
-The SAP and the SDP combined amount to the DIP for components. This is true because
-the SDP says that dependencies should run in the direction of stability, and the SAP says
-that stability implies abstraction. Thus dependencies run in the direction of abstraction
+The SAP and the SDP combined amount to the DIP for components. This is true because the SDP says that dependencies should run in the direction of stability, and the SAP says that stability implies abstraction. Thus dependencies run in the direction of abstraction 
 
 # Architecture
 
