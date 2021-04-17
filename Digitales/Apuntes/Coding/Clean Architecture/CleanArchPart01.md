@@ -643,3 +643,69 @@ Most systems, other than monoliths, use more than one boundary strategy. A syste
 
 This means that the boundaries in a system will often be a mixture of local chatty boundaries and boundaries that are more concerned with latency 
 
+
+# Policy and Level
+
+Policies that change for different reasons, or at different times, are at different levels and should be separated into different components.
+
+In a good architecture, the direction of those dependencies is based on the level of the components that they connect. In every case, low-level components are designed so that they depend on high-level components.
+
+A strict definition of “level” is “the distance from the inputs and outputs.” The farther a policy is from both the inputs and the outputs of the system, the higher its level.
+
+
+# Business Rules
+
+Strictly speaking, business rules are rules or procedures that make or save the business money. Very strictly speaking, these rules would make or save the business money, irrespective of whether they were implemented on a computer. They would make or save money even if they were executed manually.The fact that a bank charges N% interest for a loan is a business rule that
+
+We shall call these rules Critical Business Rules, because they are critical to the business itself, and would exist even if there were no system to automate them. Critical Business Rules usually require some data to work with. For example, our loan requires a loan balance, an interest rate, and a payment schedule. We shall call this data Critical Business Data. This is the data that would exist even if the system were not automated.The critical rules and critical data are inextricably bound, so they are a good 
+
+## Entity
+
+An Entity is an object within our computer system that embodies a small set of critical business rules operating on Critical Business Data.
+
+You don’t need to use an object-oriented language to create an Entity. All that is required is that you bind the Critical Business Data and the Critical Business 
+
+
+## Use case
+
+A use case is a description of the way that an automated system is used. It specifies the input to be provided by the user, the output to be returned to the user, and the processing steps involved in producing that output. A use case describes application-specific business rules as opposed to the Critical Business Rules within the Entities.
+
+Use cases contain the rules that specify how and when the Critical Business Rules within the Entities are invoked. Use cases control the dance of the Entities.
+
+From the use case, it is impossible to tell whether the application is delivered on the web, or on a thick client, or on a console, or is a pure service.
+
+This is very important. Use cases do not describe how the system appears to the user. Instead, they describe the application-specific rules that govern the interaction between the users and the Entities. 
+
+A use case is an object. It has one or more functions that implement the application-specific business rules. 
+
+Why are Entities high level and use cases lower level? Because use cases are specific to a single application and, therefore, are closer to the inputs and outputs of that system.
+
+# Screaming Architecture
+
+So what does the architecture of your application scream? When you look at the top-level directory structure, and the source files in the highest-level package, do they scream “Health Care System,” or “Accounting System,” or “Inventory Management System”? Or do they scream “Rails,” or “Spring/Hibernate,” or “ASP”?
+
+## The Theme of an architecture
+
+Architectures are not (or should not be) about frameworks. Architectures should not be supplied by frameworks. Frameworks are tools to be used, not architectures to be conformed to. If your architecture is based on frameworks,
+
+## The purpose of an architecture
+
+Good architectures are centered on use cases so that architects can safely describe the structures that support those use cases without committing to frameworks, tools, and environments.
+
+## But what about the web ?
+
+Is the web an architecture? Does the fact that your system is delivered on the web dictate the architecture of your system? Of course not! The web is a delivery mechanism—an IO device—and your application architecture should treat it as such.
+
+
+## Frameworks are tools not ways of life
+
+Frameworks can be very powerful and very useful. Framework authors often believe very deeply in their frameworks. The examples they write for how to use their frameworks are told from the point of view of a true believer. Other authors who write about the framework also tend to be disciples of the true belief. They show you the way to use the framework. Often they assume an all-encompassing, all-pervading, let-the-framework-do-everything position.
+
+This is not the position you want to take.
+
+
+## Testable Architecture
+
+If your system architecture is all about the use cases, and if you have kept your frameworks at arm’s length, then you should be able to unit-test all those use cases without any of the frameworks in place. You shouldn’t need the web server running to run your tests. You shouldn’t need the database connected to run your tests. 
+
+
