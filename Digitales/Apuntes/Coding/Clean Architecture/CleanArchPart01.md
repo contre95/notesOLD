@@ -425,9 +425,9 @@ just plain flat files.
 • It is not necessary to choose a web server early in development, because the 
 high-level policy should not know that it is being delivered over the web. If 
 the high-level policy is unaware of HTML, AJAX, JSP, JSF, or any of the 
-rest of the alphabet soup of web development, then you don’t need to 
+rest of the alphabet soup of web development, then you don't need to 
 decide which web system to use until much later in the project. Indeed, you 
-don’t even have to decide if the system will be delivered over the web. 
+don't even have to decide if the system will be delivered over the web. 
  
 • It is not necessary to adopt REST early in development, because the high-
 level policy should be agnostic about the interface to the outside world. 
@@ -452,7 +452,7 @@ Good architects carefully separate details from policy, and then decouple the po
 ## Use Cases
 The first bullet—use cases—means that the architecture of the system must support the intent of the system. If the system is a shopping cart application, then the architecture must support shopping cart use cases. Indeed, this is the first concern of the architect, and the first priority of the architecture. The architecture must support the use cases. 
 
-However, as we discussed previously, architecture does not wield much influence over the behavior of the system. There are very few behavioral options that the architecture can leave open. But influence isn’t everything. The most important thing a good architecture can do to support behavior is to clarify and expose that behavior so that the intent of the system is visible at the architectural level.
+However, as we discussed previously, architecture does not wield much influence over the behavior of the system. There are very few behavioral options that the architecture can leave open. But influence isn't everything. The most important thing a good architecture can do to support behavior is to clarify and expose that behavior so that the intent of the system is visible at the architectural level.
 
 A shopping cart application with a good architecture will look like a shopping cart application. The use cases of that system will be plainly visible within the structure of that system. Developers will not have to hunt for behaviors, because those behaviors will be first-class elements visible at the top level of the system. Those elements will be classes or functions or modules that have prominent positions within the architecture, and they will have names that clearly describe their function. 
 
@@ -469,21 +469,21 @@ As strange as it may seem, this decision is one of the options that a good archi
 Architecture plays  a significant role in supporting the development environment.
 Conway's law come into play here:
 
-*Any organization that designs a system will produce a design whose structure is a copy of the organization’s communication structure.*
+*Any organization that designs a system will produce a design whose structure is a copy of the organization's communication structure.*
 
 ## Deployment
 
-The goal is “immediate deployment.” A good architecture does not rely on dozens of little configuration scripts and property file tweaks. It does not require manual creation of directories or files that must be arranged just so. A good architecture helps the system to be immediately deployable after build.
+The goal is “immediate deployment." A good architecture does not rely on dozens of little configuration scripts and property file tweaks. It does not require manual creation of directories or files that must be arranged just so. A good architecture helps the system to be immediately deployable after build.
 
 ## Leaving options open
 
-A good architecture balances all of these concerns with a component structure that mutually satisfies them all. Sounds easy, right? Well, it’s easy for me to write that. The reality is that achieving this balance is pretty hard. The problem is that most of the time we don’t know what all the use cases are, nor do we know the operational constraints, the team structure, or the deployment requirements. Worse, even if we did know them, they will inevitably change as the system moves through its life cycle. In short, the goals we must meet are indistinct and inconstant. Welcome to the real world. 
+A good architecture balances all of these concerns with a component structure that mutually satisfies them all. Sounds easy, right? Well, it's easy for me to write that. The reality is that achieving this balance is pretty hard. The problem is that most of the time we don't know what all the use cases are, nor do we know the operational constraints, the team structure, or the deployment requirements. Worse, even if we did know them, they will inevitably change as the system moves through its life cycle. In short, the goals we must meet are indistinct and inconstant. Welcome to the real world. 
 
 A good architecture makes the system easy to change, in all the ways that it must change, by leaving options open.
 
 ## Decoupling Layers
 
-Consider the use cases. The architect wants the structure of the system to support all the necessary use cases, but does not know what all those use cases are. However, the architect does know the basic intent of the system. It’s a shopping cart system, or it’s a bill of materials system, or it’s an order processing system. So the architect can employ the Single Responsibility Principle and the Common Closure Principle to separate those things that change for different reasons, and to collect those things that change for the same reasons—given the context of the intent of the system. 
+Consider the use cases. The architect wants the structure of the system to support all the necessary use cases, but does not know what all those use cases are. However, the architect does know the basic intent of the system. It's a shopping cart system, or it's a bill of materials system, or it's an order processing system. So the architect can employ the Single Responsibility Principle and the Common Closure Principle to separate those things that change for different reasons, and to collect those things that change for the same reasons—given the context of the intent of the system. 
 
 What changes for different reasons? There are some obvious things. User interfaces change for reasons that have nothing to do with business rules. Use cases have elements of both. Clearly, then, a good architect will want to separate the UI portions of a use case from the business rule portions in such a way that they can be changed independently of each other, while keeping those use cases visible and clear. 
 
@@ -509,9 +509,9 @@ Now think of what all that decoupling means for the second bullet: operations. I
 
 In short, the decoupling that we did for the sake of the use cases also helps with operations. However, to take advantage of the operational benefit, the decoupling must have the appropriate mode. To run in separate servers, the separated components cannot depend on being together in the same address space of a processor. They must be independent services, which communicate over a network of some kind.
 
-Many architects call such components “services” or “micro-services,” depending upon some vague notion of line count. Indeed, an architecture based on services is often called a service-oriented architecture. If that nomenclature set off some alarm bells in your mind, don’t worry. I’m not going to tell you that SoA is the best possible architecture, or that microservices are the wave of the future. The point being made here is that sometimes we have to separate our components all the way to the service level. Remember, a good architecture leaves options open. The decoupling mode is one of those options.
+Many architects call such components “services" or “micro-services," depending upon some vague notion of line count. Indeed, an architecture based on services is often called a service-oriented architecture. If that nomenclature set off some alarm bells in your mind, don't worry. I'm not going to tell you that SoA is the best possible architecture, or that microservices are the wave of the future. The point being made here is that sometimes we have to separate our components all the way to the service level. Remember, a good architecture leaves options open. The decoupling mode is one of those options.
 
-Before we explore that topic further, let’s look to the other two bullets.
+Before we explore that topic further, let's look to the other two bullets.
 
 (*Read Independent Develop-Ability and Independent deployability*)
 
@@ -519,9 +519,9 @@ Before we explore that topic further, let’s look to the other two bullets.
 
 Architects often fall into a trap—a trap that hinges on their fear of duplication.
 
-Duplication is generally a bad thing in software. We don’t like duplicated code. When code is truly duplicated, we are honor-bound as professionals to reduce and eliminate it. 
+Duplication is generally a bad thing in software. We don't like duplicated code. When code is truly duplicated, we are honor-bound as professionals to reduce and eliminate it. 
 
-But there are different kinds of duplication. There is true duplication, in which every change to one instance necessitates the same change to every duplicate of that instance. Then there is false or accidental duplication. If two apparently duplicated sections of code evolve along different paths—if they change at different rates, and for different reasons—then they are not true duplicates. Return to them in a few years, and you’ll find that they are very different from each other. 
+But there are different kinds of duplication. There is true duplication, in which every change to one instance necessitates the same change to every duplicate of that instance. Then there is false or accidental duplication. If two apparently duplicated sections of code evolve along different paths—if they change at different rates, and for different reasons—then they are not true duplicates. Return to them in a few years, and you'll find that they are very different from each other. 
 
 Now imagine two use cases that have very similar screen structures. The architects will likely be strongly tempted to share the code for that structure.
 But should they? Is that true duplication? Or it is accidental?
@@ -549,11 +549,11 @@ We can control the dependencies between deployable units such as jar files, DLLs
 
 We can reduce the dependencies down to the level of data structures, and communicate solely through network packets such that every execution unit is entirely independent of source and binary changes to others (e.g., services or micro-services) 
 
-What is the best mode to use? The answer is that it’s hard to know which mode is best during the early phases of a project. Indeed, as the project matures, the optimal mode may change.
+What is the best mode to use? The answer is that it's hard to know which mode is best during the early phases of a project. Indeed, as the project matures, the optimal mode may change.
 
-For example, it’s not difficult to imagine that a system that runs comfortably on one server right now might grow to the point where some of its components ought to run on separate servers. While the system runs on a single server, the source-level decoupling might be sufficient. Later, however, it might require decoupling into deployable units, or even services.
+For example, it's not difficult to imagine that a system that runs comfortably on one server right now might grow to the point where some of its components ought to run on separate servers. While the system runs on a single server, the source-level decoupling might be sufficient. Later, however, it might require decoupling into deployable units, or even services.
 
-One solution (which seems to be popular at the moment) is to simply decouple at the service level by default. A problem with this approach is that it is expensive and encourages coarse-grained decoupling. No matter how “micro” the micro-services get, the decoupling is not likely to be fine-grained enough.
+One solution (which seems to be popular at the moment) is to simply decouple at the service level by default. A problem with this approach is that it is expensive and encourages coarse-grained decoupling. No matter how “micro" the micro-services get, the decoupling is not likely to be fine-grained enough.
 
 **My preference is to push the decoupling to the point where a service could be formed. should it become necessary; but then to leave the components in the same address space as long as possible. This leaves the option for a service open.**
 
@@ -561,7 +561,7 @@ A good architecture will allow a system to be born as a monolith, deployed in a 
 
 # Boundaries: Drawing Lines
 
-Software architecture is the art of drawing lines that I call boundaries. Some of those lines are drawn very early in a project’s life—even before any code is written. Others are drawn much later. Those that are drawn early are drawn for the purposes of deferring decisions for as long as possible, and of keeping those decisions from polluting the core business logic.
+Software architecture is the art of drawing lines that I call boundaries. Some of those lines are drawn very early in a project's life—even before any code is written. Others are drawn much later. Those that are drawn early are drawn for the purposes of deferring decisions for as long as possible, and of keeping those decisions from polluting the core business logic.
 
 Recall that the goal of an architect is to minimize the human resources required to build and maintain the required system. What it is that saps this kind of people-power? Coupling—and especially coupling to premature decisions.
 
@@ -570,7 +570,7 @@ Which kinds of decisions are premature? Decisions that have nothing to do with t
 
 ## Which Lines Do You Draw, and When Do You Draw Them?
 
-You draw lines between things that matter and things that don’t. The GUI doesn’t matter to the business rules, so there should be a line between them. The database doesn’t matter to the GUI, so there should be a line between them. The database doesn’t matter to the business rules, so there should be a line between them.
+You draw lines between things that matter and things that don't. The GUI doesn't matter to the business rules, so there should be a line between them. The database doesn't matter to the GUI, so there should be a line between them. The database doesn't matter to the business rules, so there should be a line between them.
 
 The classes and interfaces in this diagram are symbolic. In a real application, there would be many business rule classes, many database interface classes, and many database access implementations. All of them, though, would follow roughly the same pattern.
 
@@ -593,7 +593,7 @@ You should recognize this as an application of the Dependency Inversion Principl
 
 ## Boundary Anatomy
 
-The architecture of a system is defined by a set of software components and the boundaries that separate them. Those boundaries come in many different forms. In this chapter we’ll look at some of the most common.
+The architecture of a system is defined by a set of software components and the boundaries that separate them. Those boundaries come in many different forms. In this chapter we'll look at some of the most common.
 
 ## Boundary crossing
 
@@ -609,7 +609,7 @@ Such architectures almost always depend on some kind of dynamic polymorphism to 
 
 The simplest possible boundary crossing is a function call from a low-level client to a higher-level service. Both the runtime dependency and the compile-time dependency point in the same direction, toward the higher-level component.
 
-Even in a monolithic, statically linked executable, this kind of disciplined partitioning can greatly aid the job of developing, testing, and deploying the project. Teams can work independently of each other on their own components without treading on each other’s toes. High-level components remain independent of lower-level details.
+Even in a monolithic, statically linked executable, this kind of disciplined partitioning can greatly aid the job of developing, testing, and deploying the project. Teams can work independently of each other on their own components without treading on each other's toes. High-level components remain independent of lower-level details.
 
 Communications between components in a monolith are very fast and inexpensive. They are typically just function calls. Consequently, communications across source-level decoupled boundaries can be very chatty. Since the deployment of monoliths usually requires compilation and static linking, components in these systems are typically delivered as source code.
 
@@ -650,7 +650,7 @@ Policies that change for different reasons, or at different times, are at differ
 
 In a good architecture, the direction of those dependencies is based on the level of the components that they connect. In every case, low-level components are designed so that they depend on high-level components.
 
-A strict definition of “level” is “the distance from the inputs and outputs.” The farther a policy is from both the inputs and the outputs of the system, the higher its level.
+A strict definition of “level" is “the distance from the inputs and outputs." The farther a policy is from both the inputs and the outputs of the system, the higher its level.
 
 
 # Business Rules
@@ -663,7 +663,7 @@ We shall call these rules Critical Business Rules, because they are critical to 
 
 An Entity is an object within our computer system that embodies a small set of critical business rules operating on Critical Business Data.
 
-You don’t need to use an object-oriented language to create an Entity. All that is required is that you bind the Critical Business Data and the Critical Business 
+You don't need to use an object-oriented language to create an Entity. All that is required is that you bind the Critical Business Data and the Critical Business 
 
 
 ## Use case
@@ -682,7 +682,7 @@ Why are Entities high level and use cases lower level? Because use cases are spe
 
 # Screaming Architecture
 
-So what does the architecture of your application scream? When you look at the top-level directory structure, and the source files in the highest-level package, do they scream “Health Care System,” or “Accounting System,” or “Inventory Management System”? Or do they scream “Rails,” or “Spring/Hibernate,” or “ASP”?
+So what does the architecture of your application scream? When you look at the top-level directory structure, and the source files in the highest-level package, do they scream “Health Care System," or “Accounting System," or “Inventory Management System"? Or do they scream “Rails," or “Spring/Hibernate," or “ASP"?
 
 ## The Theme of an architecture
 
@@ -706,7 +706,7 @@ This is not the position you want to take.
 
 ## Testable Architecture
 
-If your system architecture is all about the use cases, and if you have kept your frameworks at arm’s length, then you should be able to unit-test all those use cases without any of the frameworks in place. You shouldn’t need the web server running to run your tests. You shouldn’t need the database connected to run your tests. 
+If your system architecture is all about the use cases, and if you have kept your frameworks at arm's length, then you should be able to unit-test all those use cases without any of the frameworks in place. You shouldn't need the web server running to run your tests. You shouldn't need the database connected to run your tests. 
 
 # The Clean Architecture
 
@@ -716,7 +716,7 @@ Each of these architectures produces systems that have the following characteris
 * Testable. The business rules can be tested without the UI, database, web server, or any other external element.
 * Independent of the UI. The UI can change easily, without changing the rest of the system. A web UI could be replaced with a console UI, for example, without changing the business rules.
 * Independent of the database. You can swap out Oracle or SQL Server for Mongo, BigTable, CouchDB, or something else. Your business rules are not bound to the database.
-* Independent of any external agency. In fact, your business rules don’t know anything at all about the interfaces to the outside world.
+* Independent of any external agency. In fact, your business rules don't know anything at all about the interfaces to the outside world.
 
 ![Clean Arch](./images/CleanArchitecture.jpg)
 
@@ -728,9 +728,9 @@ Nothing in an inner circle can know anything at all about something in an outer 
 
 ## Entities
 
-Entities encapsulate enterprise-wide Critical Business Rules. An entity can be an object with methods, or it can be a set of data structures and functions. It doesn’t matter so long as the entities can be used by many different applications in the enterprise.  
+Entities encapsulate enterprise-wide Critical Business Rules. An entity can be an object with methods, or it can be a set of data structures and functions. It doesn't matter so long as the entities can be used by many different applications in the enterprise.  
 
-If you don’t have an enterprise and are writing just a single application, then these entities are the business objects of the application. They encapsulate the most general and high-level rules. 
+If you don't have an enterprise and are writing just a single application, then these entities are the business objects of the application. They encapsulate the most general and high-level rules. 
 
 ## Use Cases
 
@@ -743,7 +743,7 @@ Similarly, data is converted, in this layer, from the form most convenient for e
 
 ## Framework and drivers
 
-Frameworks and tools such as the database and the web framework. Generally you don’t write much code in this layer, other than glue code that communicates to the next circle inward.   
+Frameworks and tools such as the database and the web framework. Generally you don't write much code in this layer, other than glue code that communicates to the next circle inward.   
 
 ## Crossing Boundaries
 
@@ -751,7 +751,7 @@ The same technique is used to cross all the boundaries in the architectures. We 
 
 ## Which data crosses the boundaries
 
-You can use basic structs or simple data transfer objects if you like. Or the data can simply be arguments in function calls. Or you can pack it into a hashmap, or construct it into an object. The important thing is that isolated, simple data structures are passed across the boundaries. We don’t want to cheat and pass Entity objects or database rows. We don’t want the data structures to have any kind of dependency that violates the Dependency Rule.
+You can use basic structs or simple data transfer objects if you like. Or the data can simply be arguments in function calls. Or you can pack it into a hashmap, or construct it into an object. The important thing is that isolated, simple data structures are passed across the boundaries. We don't want to cheat and pass Entity objects or database rows. We don't want the data structures to have any kind of dependency that violates the Dependency Rule.
 Thus, when we pass data across a boundary, it is always in the form that is most convenient for the inner circle.
 
 
@@ -768,9 +768,9 @@ Recall that we do not allow SQL in the use cases layer; instead, we use gateway 
 
 ## Data Mappers
 
-There is no such thing as an object relational mapper (ORM). The reason is simple: Objects are not data structures. At least, they are not data structures from their users’ point of view. The users of an object cannot see the data, since it is all private. Those users see only the public methods of that object. So, from the user’s point of view, an object is simply a set of operations.
+There is no such thing as an object relational mapper (ORM). The reason is simple: Objects are not data structures. At least, they are not data structures from their users' point of view. The users of an object cannot see the data, since it is all private. Those users see only the public methods of that object. So, from the user's point of view, an object is simply a set of operations.
 
-A data structure, in contrast, is a set of public data variables that have no implied behavior. ORMs would be better named “data mappers,” because they load data into  Where should such ORM systems reside? In the database layer of course.    
+A data structure, in contrast, is a set of public data variables that have no implied behavior. ORMs would be better named “data mappers," because they load data into  Where should such ORM systems reside? In the database layer of course.    
 
 ## Service Listeners
 
@@ -782,4 +782,178 @@ At each architectural boundary, we are likely to find the Humble Object pattern 
 
 # Partial Boundaries
 
+## Skip the last step
+
 One way to construct a partial boundary is to do all the work necessary to create independently compilable and deployable components, and then simply keep them together in the same component. The reciprocal interfaces are there, the input/output data structures are there, and everything is all set up—but we compile and deploy all  
+
+## One-dimensional boundaries
+
+The full-fledged architectural boundary uses reciprocal boundary interfaces to maintain isolation in both directions. Maintaining separation in both directions is expensive both in initial setup and in ongoing maintenance. 
+
+## Facades
+
+An even simpler boundary is the Facade pattern. In this case, even the dependency inversion is sacrificed. The boundary is simply defined by
+
+Clean Architecture: That means that there is a potential architectural boundary defined by this axis of change
+
+So what do we do, we architects? The answer is dissatisfying. On the one hand, some very smart people have told us, over the years, that we should not anticipate the need for abstraction. This is the philosophy of YAGNI: “You aren't going to need it." There is wisdom in this message, since over-engineering is often much worse than under-engineering. On the other hand, when you discover that you truly do need an architectural boundary where none exists, the costs and risks can be very high to add such a boundary.
+
+But this is not a one-time decision. You don't simply decide at the start of a project which boundaries to implement and which to ignore. Rather, you watch. You pay attention as the system evolves. You note where boundaries may be required, and then carefully watch for the first inkling of friction because those boundaries don't exist.  
+
+
+# The main component
+
+In every system, there is at least one component that creates, coordinates, and oversees the others. I call this component Main.
+
+Its job is to create all the Factories, Strategies, and other global facilities, and then hand control over to the high-level abstract portions of the system.  It is in this Main component that dependencies should be injected by a Dependency
+
+Injection framework. Once they are injected into Main, Main should distribute those dependencies normally, without using the framework.
+
+Think of Main as the dirtiest of all the dirty components.
+
+Think of Main as a plugin to the application—a plugin that sets up the initial conditions and configurations, gathers all the outside resources, and then hands control over to the high-level policy of the application. Since it is a plugin, it is possible to have many Main components, one for each configuration of your application. 
+
+For example, you could have a Main plugin for Dev, another for Test, and yet another for Production. You could also have a Main plugin for each country you deploy to, or each jurisdiction, or each customer. 
+
+When you think about Main as a plugin component, sitting behind an architectural boundary, the problem of configuration becomes a lot easier to solve.
+
+
+# Services: Great and small
+Service-oriented “architectures" and micro-service “architectures" have become very popular of late. The reasons for their current popularity include the following:
+
+* Services seem to be strongly decoupled from each other. As we shall see, this is only partially true.
+
+* Services appear to support independence of development and deployment. Again,
+
+Services that simply separate application behaviors are little more than expensive function calls, and are not necessarily architecturally significant.
+
+This is not to say that all services should be architecturally significant. There are often substantial benefits to creating services that separate functionality across processes and platforms—whether they obey the Dependency Rule or not. It's just that services, in and of themselves, do not define an architecture. 
+
+## The decoupling fallacy
+
+One of the big supposed benefits of breaking a system up into services is that services are strongly decoupled from each other. After all, each service runs in a
+
+There is certainly some truth to this—but not very much truth. Yes, services are decoupled at the level of individual variables. However, they can still be coupled by shared resources within a processor, or on the network. What's more, they are strongly coupled by the data they share.  
+
+For example, if a new field is added to a data record that is passed between services, then every service that operates on the new field must be changed.
+
+Service interfaces are no more formal, no more rigorous, and no better defined than function interfaces. Clearly, then, this benefit is something of an illusion. 
+ 
+First, history has shown that large enterprise systems can be built from monoliths and component-based systems as well as service-based systems. Thus services are not the only option for building scalable systems.  
+
+Yes! Services do not need to be little monoliths. Services can, instead, be designed using the SOLID principles, and given a component structure so that new components can be added to them without changing the existing components within the service.  
+
+The services still exist as before, but each has its own internal component design, allowing new features to be added as new derivative classes. Those derivative classes live within their own 
+
+## Cross-cutting concerns
+
+What we have learned is that architectural boundaries do not fall between services. Rather, those boundaries run through the services, dividing them into components.
+
+Those services do not define the architectural boundaries of the system; instead, the components within the services
+
+As useful as services are to the scalability and develop-ability of a system, they are not, in and of themselves, architecturally significant elements.
+
+A service might be a single component, completely surrounded by an architectural boundary. Alternatively, a service might be composed of several components separated by architectural boundaries. In rare2 cases, clients and services may be so coupled as to have no architectural sig 
+
+## The test boundary
+
+From an architectural point of view, all tests are the same.
+
+Tests are the most isolated system component. They are not necessary for system operation. No user depends on them. Their role is to support development, not operation. And yet, they are no less a system component than any other. In fact, in many ways they represent the model that all other system components should follow.  
+
+## Design for testability
+
+The extreme isolation of the tests, combined with the fact that they are not usually deployed, often causes developers to think that tests fall outside of the design of the system. This is a catastrophic point of view. Tests that are not well integrated into the design of the system tend to be fragile, and they make the system rigid and difficult to change. 
+
+# Clean embedded architecture
+
+Software is this thing that can have a long useful life, but firmware will become obsolete as hardware evolves.
+Non-embedded engineers also write firmware! You non-embedded developers essentially write firmware whenever you bury SQL in your code or when you spread platform dependencies throughout your code.  
+
+## App-titude test
+
+Why does so much potential embedded software become firmware? 
+
+1. “First make it work." You are out of business if it doesn't work.
+2. “Then make it right." Refactor the code so that you and others can understand it
+and evolve it as needs change or are better understood.
+3. “Then make it fast." Refactor the code for “needed" performance.
+
+
+## Programming to interfaces and substitutability
+
+The idea of a layered architecture is built on the idea of programming to interfaces. When one module interacts with another though an interface, you can substitute one service provider for another. Many readers will have written their own small version of printf for deployment in the target. As long as the interface to your printf is the same as the standard version of printf, you can override the service one for the other.
+
+
+# The database is a detail
+
+From an architectural point of view, the database is a non-entity—it is a detail that does not rise to the level of an architectural element.
+
+The structure you give to the data within your application is highly significant to the architecture of your system. But the database is not the data model. The database is piece of software. The database is a utility that provides access to the data.
+
+
+## Relational databases
+
+The relational model is elegant, disciplined, and robust.  
+
+While relational tables may be convenient for certain forms of data access, there is nothing architecturally significant about arranging data into rows within tables. The
+
+To mitigate the time delay imposed by disks, you need indexes, caches, and optimized query schemes.
+
+Over the years these systems have split into two distinct kinds: file systems and relational database management systems (RDBMS). 
+
+File systems are document based. They provide a natural and convenient way to store whole documents. They work well when you need to save and retrieve a set of documents by name, but they don't offer a lot of help when you're searching the content of those documents. It's easy to find a file named login.c, but it's hard, and slow, to find every .c file that has a variable named x in it.
+
+Database systems are content based. They provide a natural and convenient way to find records based on their content. They are very good at associating multiple records based on some bit of content that they all share. Unfortunately, they are rather poor at storing and retrieving opaque documents. 
+
+## Performance
+
+Isn't performance an architectural concern? Of course it is—but when it comes to data storage, it's a concern that can be entirely encapsulated and separated from the business rules. 
+
+
+# The web is a detail
+
+The web is just the latest in a series of oscillations that our industry has gone through since the 1960s. 
+
+The upshot is simply this: The GUI is a detail. The web is a GUI. So the web is a detail. And, as an architect, you want to put details like that behind boundaries that keep them separate from your core business logic. 
+
+
+# Frameworks are a details
+
+Frameworks are not architectures—though some try to be.
+
+## Asymmetric Marriage
+
+The relationship between you and the framework author is extraordinarily asymmetric. You must make a huge commitment to the framework, but the framework author makes no commitment to you whatsoever. 
+
+
+## The missing chapter
+
+All of the advice you've read so far will certainly help you design better software, composed of classes and components with well-defined boundaries, clear responsibilities, and controlled dependencies. But it turns out that the devil is in the implementation details, and it's really easy to fall at the last hurdle if you don't give 
+
+
+## Package by layer
+
+The first, and perhaps simplest, design approach is the traditional horizontal layered
+architecture, where we separate our code based on what it does from a technical
+
+The first, and perhaps simplest, design approach is the traditional horizontal layered architecture, where we separate our code based on what it does from a technical perspective. This is often called “package by layer." 
+
+In this typical layered architecture, we have one layer for the web code, one layer for our “business logic," and one layer for persistence. In other words, code is sliced horizontally into layers, which are used as a way to group similar types of things. In a “strict layered architecture," layers should depend only on the next adjacent lower layer.  
+
+## Package by feature
+
+This is a vertical slicing, based on related features, domain concepts, or aggregate roots (to use domain-driven design terminology). 
+
+## Ports and adapters
+
+As Uncle Bob has said, approaches such as “ports and adapters," the “hexagonal architecture," “boundaries, controllers, entities," and so on aim to create architectures where business/domain-focused code is independent and separate from the technical implementation details such as frameworks and databases. 
+
+The keen-eyed reader will notice that the OrdersRepository from previous diagrams has been renamed to simply be Orders. This comes from the world of domain-driven design, where the advice is that the naming of everything on the “inside" should be stated in terms of the “ubiquitous domain language." To put that another way, we talk about “orders" when we're having a discussion about the domain, not the “orders repository."
+
+It's also worth pointing out that this is a simplified version of what the UML class diagram might look like, because it's missing things like interactors and objects to
+
+# Conclusion: the missing advice
+
+The whole point of this chapter is to highlight that your best design intentions can be  destroyed in a flash if you don't consider the intricacies of the implementation strategy. Think about how to map your desired design on to code structures, how to organize that code, and which decoupling modes to apply during runtime and compile-time. 
+
