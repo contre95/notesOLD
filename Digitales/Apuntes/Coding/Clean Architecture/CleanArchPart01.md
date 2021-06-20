@@ -20,16 +20,16 @@ Foote and Joseph Yoder*
 
 The path we are most interested is  the cleanest one, where we recognize the
 softness of software and preserve it as a first-class property of the system.
-Recognize that we operate with incomplete knowledge, but also understand that
-as humans is something we're good at. Play more to our strength than to our
+Recognize that we operate with incomplete knowledge, but also understand that as
+humans is something we're good at. Play more to our strength than to our
 weaknesses. 
 
 *Architecture is a hypothesis, that needs to be proven by implementation and
 measurement.* - *Tom Glib*
 
-To walk this path requires care and attention, thought and observation,
-practice and principle.  This at first might sound slow, but it's all in the
-way that you walk.
+To walk this path requires care and attention, thought and observation, practice
+and principle.  This at first might sound slow, but it's all in the way that you
+walk.
 
 *Slow and steady wins the race.*
 
@@ -39,8 +39,8 @@ Uncle Bob claims to have taken part and tons of different systems from games to
 multi-threaded, multi processor, GUI and databases apes and all of them follows
 the same rules.
 
-He concludes "*the rules of software architecture are independent of every
-other variable.*" He based on the fact that even though technology has improved
+He concludes "*the rules of software architecture are independent of every other
+variable.*" He based on the fact that even though technology has improved
 drastically in term of new hardware more libraries and new languages, the bases
 are the same. It's made of the same stuff. It's made of `if` statements,
 assignments statements, and `while` loops. This changeless NESS of the code is
@@ -55,13 +55,13 @@ another matter entirely. Getting software right is hard and most young
 programmers don't have what it needs or simply doesn't care about writing clean
 code.
 
-When you get software right, something magical happens: You don't need hordes
-of programmers to keep it working. You don't need massive requirements
-documents and huge issue tracking systems. When software is done right it
-requires a fraction the human resources to create and maintain.
+When you get software right, something magical happens: You don't need hordes of
+programmers to keep it working. You don't need massive requirements documents
+and huge issue tracking systems. When software is done right it requires a
+fraction the human resources to create and maintain.
 
-Unfortunately, It is far more common to fight your way through terrible
-software designs that it is to enjoy the pleasure of working with a good one.
+Unfortunately, It is far more common to fight your way through terrible software
+designs that it is to enjoy the pleasure of working with a good one.
 
 # Part I: What is design and architecture ?
 
@@ -71,9 +71,9 @@ define what architecture and design are. For starters, there's no difference at
 all.
 
 The work *architecture* is often used in the context of something at a high
-level that is divorced from the lower-level details, whereas *design* more
-often seems to imply structures and decisions at a lower level. But this usage
-is nonsensical when you look at what a real architect does. 
+level that is divorced from the lower-level details, whereas *design* more often
+seems to imply structures and decisions at a lower level. But this usage is
+nonsensical when you look at what a real architect does. 
 
 ### The goal
 
@@ -98,8 +98,8 @@ matter.
 The developers may think that the answer is to start over from scratch and
 redesign the whole system --  but that's just the hare talking again.
 
-*Their overconfidence will drive the redesign into the same mess as the
-original project.*
+*Their overconfidence will drive the redesign into the same mess as the original
+project.*
 
 ## A tale of two values
 
@@ -115,12 +115,12 @@ sadly wrong.
 
 ### Architecture
 
-**Architecture**, has to do with the word software. *ware* being product and
-the word *soft* that is where the second value lies.
+**Architecture**, has to do with the word software. *ware* being product and the
+word *soft* that is where the second value lies.
 
-Software was invented to be *soft*. It was intended to be a way to easily
-change the behavior of machines. If we'd wanted the behavior of machines to be
-hard to  change, we would have called it *hardware*.
+Software was invented to be *soft*. It was intended to be a way to easily change
+the behavior of machines. If we'd wanted the behavior of machines to be hard to
+change, we would have called it *hardware*.
 
 Architecture should be agnostics of shape.
 
@@ -150,9 +150,9 @@ Business managers and developers often place the 3 option to the first place.
 
 Another revolution, probably more significant, revolution was in programming
 paradigms. Paradigms area ways of programming, relatively unrelated to
-languages. ***A paradigm tells you which programming structures to use, and
-when to use them***. To date, there have been three such paradigms and there
-are unlikely to be any others. 
+languages. ***A paradigm tells you which programming structures to use, and when
+to use them***. To date, there have been three such paradigms and there are
+unlikely to be any others. 
 
 ## Paradigm overview
 
@@ -170,23 +170,22 @@ jumps with the more familiars `if/then/else` and `do/while/until` constructs.
 
 ### Object Oriented
 
-Two years earlier Object oriented programming was discovered by Ole and
-Kristen. These two programmer noticed that the function call stack frame in the
-`ALGOL` language could be moved to a heap, thereby allowing local variables
-declared by a function to exist long after the function returned. The function
-become a constructors for a class, the local variables became instance
-variables, and the nested functions became methods. This lead inevitably to the
-discovery of polymorphism through the disciplined use of function pointers.
+Two years earlier Object oriented programming was discovered by Ole and Kristen.
+These two programmer noticed that the function call stack frame in the `ALGOL`
+language could be moved to a heap, thereby allowing local variables declared by
+a function to exist long after the function returned. The function become a
+constructors for a class, the local variables became instance variables, and the
+nested functions became methods. This lead inevitably to the discovery of
+polymorphism through the disciplined use of function pointers.
 
-*Object-oriented programming imposes discipline on indirect transfer of
-control*
+*Object-oriented programming imposes discipline on indirect transfer of control*
 
 ### Functional
 
 The first to be invented was functional programming. Its  invention predates
 computer programming itself. Derived from 1-Calculus, its main foundational
-notions is immutability -- that is, the notion that the values of symbols do
-not change. 
+notions is immutability -- that is, the notion that the values of symbols do not
+change. 
 
 *Functional programming imposes discipline upon assignment*
 
@@ -195,13 +194,13 @@ not change.
 Notice the pattern that I've quite deliberately set up in introducing these
 three programming paradigms: Each of them removes capabilities from the
 programmer. None of them adds new capabilities. Each imposes some kind of extra
-discipline that is negative in its intent. The paradigms tell us what not to
-do, more than they tell us what to do.
+discipline that is negative in its intent. The paradigms tell us what not to do,
+more than they tell us what to do.
 
-Every paradigm takes aways something. The three paradigms together remove
-`goto` statements, functions pointers, and assignment. Is there anything left
-to take away ? These were discovered in the span of 10 years, in the many
-decades that have followed, no new paradigms have been added.
+Every paradigm takes aways something. The three paradigms together remove `goto`
+statements, functions pointers, and assignment. Is there anything left to take
+away ? These were discovered in the span of 10 years, in the many decades that
+have followed, no new paradigms have been added.
 
 ### Conclusion
 
@@ -215,19 +214,18 @@ components, and data management.
 ## Structured Programming
 
 Dijkstra realized that programming is hard and that programmer don't do it very
-well. A program of any complexity contains too many details for a human brain
-to manage without help.  To solve this issue, Dijkstra tried to apply the
+well. A program of any complexity contains too many details for a human brain to
+manage without help.  To solve this issue, Dijkstra tried to apply the
 mathematical discipline of proof. His vision was the construction of Euclidean
-hierarchy of postulates, theorems, corollaries, and lemmas. Programmer would
-use proven structures, and tie them together with code that they would prove
-correct themselves. He discovered that certain uses of `goto` statements
-prevent modules  from being decomposed recursively into smaller units therefore
-preventing the use of the divide-and-conquer approach necessary for reasonable
-proofs. However, other uses of goto didn't have this problem. He realized that
-this *good* uses of `goto` corresponds to simple selection and iteration
-control structures. All programs can be constructed with three structures:
-Sequence, Selection and Iteration. This very same structures made a program
-provable.
+hierarchy of postulates, theorems, corollaries, and lemmas. Programmer would use
+proven structures, and tie them together with code that they would prove correct
+themselves. He discovered that certain uses of `goto` statements prevent modules
+from being decomposed recursively into smaller units therefore preventing the
+use of the divide-and-conquer approach necessary for reasonable proofs. However,
+other uses of goto didn't have this problem. He realized that this *good* uses
+of `goto` corresponds to simple selection and iteration control structures. All
+programs can be constructed with three structures: Sequence, Selection and
+Iteration. This very same structures made a program provable.
 
 The Euclidean hierarchy of theorems was never built. And programmers never saw
 the benefits of working through the laborious process of formally proving each
@@ -235,32 +233,30 @@ and every little function correct. Of course, formal, Euclidean style,
 mathematical proofs is not the only strategy for proving something correct.
 Another highly successful strategy is the scientific method. Proving thins
 incorrect. That's the nature of scientific theories and laws: They are
-falsifiable but not provable. Science work by proving statement false, not
-true. We take as true the statements that, after a long time, we couldn't prove
-true. 
+falsifiable but not provable. Science work by proving statement false, not true.
+We take as true the statements that, after a long time, we couldn't prove true. 
 
 ### Tests
 
 Dijkstra once said: *"Testing shows the presence, not the absence, of bugs".*
 Functions can be proven to be incorrect with a test, but it can't be proven
-correct.  Software development is not like mathematical endeavor, even though
-is it seems to manipulate mathematical constructs. Rather, software is like
+correct.  Software development is not like mathematical endeavor, even though is
+it seems to manipulate mathematical constructs. Rather, software is like
 science. We show correctness by failing in proving incorrectness.
 
 ### Conclusion
 
 In conclusion, structured programming is this ability to create falsifiable
 units of programming that makes structured programming valuable today.  At the
-architecture level, this is why we still consider functional decomposition to
-be on of our best practices. 
+architecture level, this is why we still consider functional decomposition to be
+on of our best practices. 
 
 ## Object Oriented Programming
 
-The basis of a good architecture is the correct understanding and application
-of the principles of Object-oriented design (OO) OO Design is the combination
-of data and function but is also explain as "A way to model the real world".
-The three magic word to explain OO are encapsulation, inheritance and
-polymorphism.
+The basis of a good architecture is the correct understanding and application of
+the principles of Object-oriented design (OO) OO Design is the combination of
+data and function but is also explain as "A way to model the real world".  The
+three magic word to explain OO are encapsulation, inheritance and polymorphism.
 
 ### Encapsulation
 
@@ -284,33 +280,33 @@ masquerading of data structures significantly more convenient.
 
 ### Polymorphism
 
-We did have polymorphism in languages before OO. For example in the
-`getchard()` and `putchar()` which read and write from the STDIN and STDOUT.
-The UNIX operating system requires that every IO devices drivers provide five
-standard functions: `open`, `close`, `read`, `write` and `seek` and `seek`. The
+We did have polymorphism in languages before OO. For example in the `getchard()`
+and `putchar()` which read and write from the STDIN and STDOUT.  The UNIX
+operating system requires that every IO devices drivers provide five standard
+functions: `open`, `close`, `read`, `write` and `seek` and `seek`. The
 signatures of these functions must be identical for every IO driver The bottom
 line is that polymorphism is an application of pointers to functions.
 Programmers have been using these to achieve polymorphic behavior since 1940s.
 In other word, OO has provide nothing new.
 
 The problem with pointers to functions is that they are dangerous. Such use is
-driven by a set of manual conventions. If any programmer fails to remember
-these conventions, the resulting bug can be hard to track down and eliminate.
-OO languages eliminate these conventions and, therefore, these dangers. Using
-OO languages, polymorphism is trivial. That fat provides enormous power that
-old C programmer could only dream of. On this basis, we can conclude that OO
-imposes discipline on indirect transfer of control. 
+driven by a set of manual conventions. If any programmer fails to remember these
+conventions, the resulting bug can be hard to track down and eliminate.  OO
+languages eliminate these conventions and, therefore, these dangers. Using OO
+languages, polymorphism is trivial. That fat provides enormous power that old C
+programmer could only dream of. On this basis, we can conclude that OO imposes
+discipline on indirect transfer of control. 
 
 ### The power of polymorphism
 
 The power of polymorphism lays on the fact that by implementing functions in,
-for example, UNIX IO drivers, then we can assure that the program that use
-    those functions does not depend on the source code of those
-    "not-dependencies" (IO Drivers.) In short IO drivers have become plugins to
-    out program. The plug-in architecture has been interested to achieve IO
-    devices independence, and has been implemented in almost every operating
-    system since its introduction.  OO allows the plug-in architecture to be
-    used anywhere, for anything.
+for example, UNIX IO drivers, then we can assure that the program that use those
+    functions does not depend on the source code of those "not-dependencies" (IO
+    Drivers.) In short IO drivers have become plugins to out program. The
+    plug-in architecture has been interested to achieve IO devices independence,
+    and has been implemented in almost every operating system since its
+    introduction.  OO allows the plug-in architecture to be used anywhere, for
+    anything.
 
 ### Dependency Inversion
 
@@ -345,10 +341,10 @@ Database.
 
 OO is the ability, through the use of polymorphism, to gain absolute control
 over every source code dependency in the system. It allows the architect to
-create a plug-in architecture, in which modules that contain high-level
-policies are independent of module that contain los-level details. The
-low-level details are relegated to plug-in modules that can be deployed and
-developed independently from the modules that contain high-level policies.
+create a plug-in architecture, in which modules that contain high-level policies
+are independent of module that contain los-level details. The low-level details
+are relegated to plug-in modules that can be deployed and developed
+independently from the modules that contain high-level policies.
 
 # Part III: Design Principles
 
@@ -384,8 +380,7 @@ system).
 Now, what do we mean by the word "module" ? The simplest definition is just a
 source file. Most of the time that definition works fine. Some languages and
 development environments, though, don't use source files to contain their code.
-In those cases a module is just a cohesive set of functions and data
-structures.
+In those cases a module is just a cohesive set of functions and data structures.
 
 [SEE THE EXAMPLE OF THE EMPLOYEE ON THE BOOK]
 
@@ -412,14 +407,14 @@ this example in particularly.
 
 If component A should be protected from changes in component B, then B depends
 on A. We wan the *Controller* to be protected from changes in the *Presenters*.
-We want to protect the *Presenters* from changes in the views. WE wan to
-protect the *Interactor* from changes in-- well, everything.  Why should the
+We want to protect the *Presenters* from changes in the views. WE wan to protect
+the *Interactor* from changes in-- well, everything.  Why should the
 *Interactor* hold such a privilege position ? Because it contains the business
 rules, it contains the higher level policies of the application.  This is how
-OCP works at the architectural level. Architects separate functionality based
-on how, why, and when it changes, and then organize that separated
-functionality into a hierarchy of components. Higher-level components or
-protected from changes made to the lower-level components.
+OCP works at the architectural level. Architects separate functionality based on
+how, why, and when it changes, and then organize that separated functionality
+into a hierarchy of components. Higher-level components or protected from
+changes made to the lower-level components.
 
 OCP is the one driving forces behind the architecture of systems. The goal to
 make te system easy to extend without incurring a high impact of change. This
@@ -430,8 +425,8 @@ from changes in lower-level components.
 
 Substitutability is a principle in object-oriented programming stating that, in
 a computer program, if S is a subtype of T, then objects of type T may be
-replaced with objects of type S without altering any of the desirable
-properties of the program.
+replaced with objects of type S without altering any of the desirable properties
+of the program.
 
 ### LSP and architecture
 
@@ -448,21 +443,21 @@ polluted with significant amount of extra mechanisms.
 
 ## The interface segregation principle (ISP)
 
-The interface-segregation principle (ISP) states that no client should be
-forced to depend on methods it does not use. In general is harmful to depend on
-modules that contain more than you need. This is obviously true for source code
+The interface-segregation principle (ISP) states that no client should be forced
+to depend on methods it does not use. In general is harmful to depend on modules
+that contain more than you need. This is obviously true for source code
 dependencies that can force unnecessary recompilation and redeployment-- but it
 is also true at a much higher, architectural level.
 
 ## The  dependency inversion principle (DIP)
 
-The dependency inversion principle (DIP) tells us that the most flexible
-systems are those in which source code dependencies refer only to abstractions,
-not to congregations.  It is the volatile concrete elements of our system that
-we want to avoid depending on. Those are the modules  that we are actively
-developing, and that are undergoing frequent change. Interfaces are less
-volatile that implementations. This implications boils down to a set of very
-specific coding practices: 
+The dependency inversion principle (DIP) tells us that the most flexible systems
+are those in which source code dependencies refer only to abstractions, not to
+congregations.  It is the volatile concrete elements of our system that we want
+to avoid depending on. Those are the modules  that we are actively developing,
+and that are undergoing frequent change. Interfaces are less volatile that
+implementations. This implications boils down to a set of very specific coding
+practices: 
 
 * Don't refer to volatile concrete classes. Refer to abstract interfaces
   instead.
@@ -482,8 +477,8 @@ needed until during runtime.
 
 # Part IV:  Components principles
 
-If SOLID principles tell us how to arrange the bricks into walls and rooms,
-then the component principles tell us how to arrange the rooms into buildings.
+If SOLID principles tell us how to arrange the bricks into walls and rooms, then
+the component principles tell us how to arrange the rooms into buildings.
 
 ## Components The smallest entities that can be deployed as a single unit.
 Examples - jar file, DLL, shared library, etc.
@@ -509,9 +504,9 @@ We are now living in the age of software reuse -- a fulfillment of one of the
 oldest promises of the object-oriented model.  From a software design and
 architecture point of view, this principle means that the classes and modules
 that are formed into a component must belong to a cohesive group classes and
-modules that are grouped together into a component should be releasable
-together though it is hard to precisely explain the glue that holds these
-together into a single component. 
+modules that are grouped together into a component should be releasable together
+though it is hard to precisely explain the glue that holds these together into a
+single component. 
 
 The weakness of this principle is more than compensated by the strength of next
 two principle strongly define this principle in the negative sense.
@@ -527,10 +522,10 @@ change. For most application, maintainability is more important than
 reusability. If the code in an application must change, you would like all of
 the changes to occur in one single component. 
 
-#### Similarity with SRP The CCP is the component form of the SRP. The SRP
-tells us to separate methods into different classes, if they change for
-different reasons. The CCP tells us to separate classes into different
-components, if they change for different reasons.
+#### Similarity with SRP The CCP is the component form of the SRP. The SRP tells
+us to separate methods into different classes, if they change for different
+reasons. The CCP tells us to separate classes into different components, if they
+change for different reasons.
 
 ### The common reuse principle.
 
@@ -541,8 +536,8 @@ modules should be placed into a component.
 
 We want to make sure that classes that we put together into a component are
 inseparable--  that it is impossible to depend on some and not on the others.
-Otherwise, we will be redeploying more components than is necessary, and
-wasting significant effort.
+Otherwise, we will be redeploying more components than is necessary, and wasting
+significant effort.
 
 #### Relation to ISP.
 
@@ -559,9 +554,9 @@ tension between these principles that good architects seek to resolve.
 ![Tensions Cohesion Diagram ](./images/CohesionPrinciplesTensionDiagram.jpg)
 
 An architect who focuses on just the REP and CRP will find that too many
-component are impacted when simple changes are made.. In contrast, and
-architect who focuses too strongly on the CCP and REP will cause too many
-unneeded releases to be generated.
+component are impacted when simple changes are made.. In contrast, and architect
+who focuses too strongly on the CCP and REP will cause too many unneeded
+releases to be generated.
 
 Generally projects tend to start on the right hand of the triangle, where the
 only sacrifice is reuse. As the project matures, and other projects begin to
@@ -569,8 +564,8 @@ draw from it, the project will slide over to the left.  It has more to do with
 the way that project is developed and used than with what the project actually
 does.
 
-Moreover, the balance is almost always dynamic. That is the partitioning that
-is appropriate today might not be  appropriate next year.
+Moreover, the balance is almost always dynamic. That is the partitioning that is
+appropriate today might not be  appropriate next year.
 
 ## Component Coupling
 
@@ -579,8 +574,8 @@ is appropriate today might not be  appropriate next year.
 *Allow no cycles in the component dependency graph*
 
 Have you ever worked all day, then go home, only to arrive the next morning to
-find that your stuff no longer works ? This is because someone stayed later
-than you and changes something you depend on! I call this "The morning after
+find that your stuff no longer works ? This is because someone stayed later than
+you and changes something you depend on! I call this "The morning after
 syndrome"
 
 Over the last two decades only two solutions to this problem have evolved. The
@@ -596,18 +591,18 @@ Friday since the integration time increase with the project size.
 
 #### Eliminating dependency cycles
 
-The solution to this is to partition the development environment into
-releasable components. The components become units of work that can be the
-responsibility of a single developer, or a team of developers. Releases are
-donde by components now. Changes made to one component do not need to have an
-immediate affect on other teams. Each team can decide for itself when to adapt
-its own components to new releases of the components. Moreover, integration
-happens in small increments.  For this strategy to work, there can be no cycles
-in the component dependency graph. It's a DAG (Directed Acyclic Graph).
-Whenever we find a cyclic on the dependency graph (as seen in the figure
-between Entities and Authorizer) we should make sure to remove it.
-![Dependency Graph](./images/DependencyGraph.jpg) To break the cycle we can
-take two approaches.
+The solution to this is to partition the development environment into releasable
+components. The components become units of work that can be the responsibility
+of a single developer, or a team of developers. Releases are donde by components
+now. Changes made to one component do not need to have an immediate affect on
+other teams. Each team can decide for itself when to adapt its own components to
+new releases of the components. Moreover, integration happens in small
+increments.  For this strategy to work, there can be no cycles in the component
+dependency graph. It's a DAG (Directed Acyclic Graph).  Whenever we find a
+cyclic on the dependency graph (as seen in the figure between Entities and
+Authorizer) we should make sure to remove it.  ![Dependency
+Graph](./images/DependencyGraph.jpg) To break the cycle we can take two
+approaches.
 
 1. Apply the Dependency Inversion Principle (DIP). So we can make Authorizer
 depend on Entities and not the other way around.  ![DIP for Dependency
@@ -621,8 +616,8 @@ from the top down. It is not one of the first things about the system that is
 designed, but rather evolves as the system grows and changes.  In fact, the
 component dependency diagrams have very little to do with describing the
 function of the application. Instead, they are a map to the buildability and
-maintainability of the application. If there's no software to build or
-maintain, then, there's no need for such diagram.
+maintainability of the application. If there's no software to build or maintain,
+then, there's no need for such diagram.
 
 ### The stable dependencies principle
 
@@ -637,20 +632,20 @@ modules that are harder to change.
 
 ### Stability
 
-Stability is related to the amount of work required to make a change. One way
-to make a software component difficult to change, is to make lots of other
-software depend on it. The way we measure this stability is by counting the
-number of dependencies that enter and leave that component.
+Stability is related to the amount of work required to make a change. One way to
+make a software component difficult to change, is to make lots of other software
+depend on it. The way we measure this stability is by counting the number of
+dependencies that enter and leave that component.
 
 **Fan-in:** Incoming dependencies **Fan-out:** Outgoing dependencies
 **I(Instability):** Fan-in / (Fan-in+ Fan-out)
 
 Not all components should be stable, if all components in a system were
-maximally stable, the system would be unchangeable. We wan to design system
-with components that are stable and components that are unstable. 
+maximally stable, the system would be unchangeable. We wan to design system with
+components that are stable and components that are unstable. 
 
-### The stable abstraction principle *A component should be as abstract as it
-is stable*
+### The stable abstraction principle *A component should be as abstract as it is
+stable*
 
 Software that encapsulates hight level policies should go in stable components
 while unstable components should contain volatile software. The answer is found
@@ -659,18 +654,17 @@ while unstable components should contain volatile software. The answer is found
     modification. Which kind of classes conform to this principle? Abstract
     classes.
 
-The Stable Abstractions Principle (SAP) sets up a relationship between
-stability and abstractness. On the one hand, it says that a stable component
-should also be abstract so that its stability does not prevent it from being
-extended. On the other hand, it says that an unstable component should be
-concrete since it its instability allows the concrete code within it to be
-easily changed. It should consist of interfaces and abstract classes so that it
-can be extended.
+The Stable Abstractions Principle (SAP) sets up a relationship between stability
+and abstractness. On the one hand, it says that a stable component should also
+be abstract so that its stability does not prevent it from being extended. On
+the other hand, it says that an unstable component should be concrete since it
+its instability allows the concrete code within it to be easily changed. It
+should consist of interfaces and abstract classes so that it can be extended.
 
 The SAP and the SDP combined amount to the DIP for components. This is true
-because the SDP says that dependencies should run in the direction of
-stability, and the SAP says that stability implies abstraction. Thus
-dependencies run in the direction of abstraction 
+because the SDP says that dependencies should run in the direction of stability,
+and the SAP says that stability implies abstraction. Thus dependencies run in
+the direction of abstraction 
 
 # Architecture
 
@@ -695,10 +689,10 @@ monolithic system without well-defined components or interfaces, on the other
 hand, a system developed by 5 different teams can not make progress unless the
 system is divided into well define components.
 
-Such a component-per-team architecture is not likely to be the best
-architecture for deployment, operation, and maintenance of the system.
-Nevertheless, it is the architecture that a group of team will gravitate toward
-if they are driven solely by development schedule.
+Such a component-per-team architecture is not likely to be the best architecture
+for deployment, operation, and maintenance of the system.  Nevertheless, it is
+    the architecture that a group of team will gravitate toward if they are
+    driven solely by development schedule.
 
 ## Deployment
 
@@ -712,18 +706,18 @@ but very difficult to develop.
 The impact of architect on system operation tends to be les dramatic than the
 impact of architecture on development, deployment, and maintenance. Almost any
 operational difficulty can be resolved by throwing more hardware at the system
-without drastically impacting software architecture.  Architecture should
-reveal operation. The architecture of the system should elevate the use cases,
-the visible landmark for the developers. This simplifies the understanding of
-the system and, therefore, greatly aids in development and maintenance.
+without drastically impacting software architecture.  Architecture should reveal
+operation. The architecture of the system should elevate the use cases, the
+visible landmark for the developers. This simplifies the understanding of the
+system and, therefore, greatly aids in development and maintenance.
 
 ## Maintenance The never-ending parade of new features and the inevitable trail
-of defects and corrections consume vast amounts of human resources.  The
-primary cost of maintenance is in spelunking and risk. Spelunking is the cost
-of digging through the existing software, trying to determine the best place
-and the best strategy to add a new feature or to repair a defect. While making
-such changes, the likelihood of creating inadvertent defects is always there,
-adding to the cost of risk.
+of defects and corrections consume vast amounts of human resources.  The primary
+cost of maintenance is in spelunking and risk. Spelunking is the cost of digging
+through the existing software, trying to determine the best place and the best
+strategy to add a new feature or to repair a defect. While making such changes,
+the likelihood of creating inadvertent defects is always there, adding to the
+cost of risk.
 
 ## Keeping option open As we described in an earlier chapter, software has two
 types of value: the value of its behavior and the value of its structure. The
@@ -734,10 +728,10 @@ All software systems can be decomposed into two major elements: policy and
 details. The policy element embodies all the business rules and procedures. The
 policy is where the true value of the system lives.
 
-The details are those things that are necessary to enable humans, other
-systems, and programmers to communicate with the policy, but that do not impact
-the behavior of the policy at all. They include IO devices, databases, web
-systems, servers, frameworks, communication protocols, and so forth. 
+The details are those things that are necessary to enable humans, other systems,
+and programmers to communicate with the policy, but that do not impact the
+behavior of the policy at all. They include IO devices, databases, web systems,
+servers, frameworks, communication protocols, and so forth. 
 
 The goal of the architect is to create a shape for the system that recognizes
 policy as the most essential element of the system while making the details
@@ -778,8 +772,8 @@ and deferred as long as possible.
 
 # Independence
 
-(*I think this chapter is very important so most of it won't be a summary but
-an exact copy*)
+(*I think this chapter is very important so most of it won't be a summary but an
+exact copy*)
 
 ## Use Cases The first bullet—use cases—means that the architecture of the
 system must support the intent of the system. If the system is a shopping cart
@@ -797,41 +791,41 @@ level.
 A shopping cart application with a good architecture will look like a shopping
 cart application. The use cases of that system will be plainly visible within
 the structure of that system. Developers will not have to hunt for behaviors,
-because those behaviors will be first-class elements visible at the top level
-of the system. Those elements will be classes or functions or modules that have
+because those behaviors will be first-class elements visible at the top level of
+the system. Those elements will be classes or functions or modules that have
 prominent positions within the architecture, and they will have names that
 clearly describe their function. 
 
 ## Operation
 
-Architecture plays a more substantial, and less cosmetic, role in supporting
-the operation of the system. If the system must support 100,000 customers per
+Architecture plays a more substantial, and less cosmetic, role in supporting the
+operation of the system. If the system must support 100,000 customers per
 second, the architecture must support that.
 
-For some systems, this will mean arranging the processing elements of the
-system into an array of little services can be run in parallel on many
-different servers. For other systems, it will mean a plethora of little
-lightweight threads sharing the address space of a single process within a
-single processor. Still other systems will need just a few processes running in
-isolated address spaces. And some systems can even survive as simple monolithic
-programs running in a single process. 
+For some systems, this will mean arranging the processing elements of the system
+into an array of little services can be run in parallel on many different
+servers. For other systems, it will mean a plethora of little lightweight
+threads sharing the address space of a single process within a single processor.
+Still other systems will need just a few processes running in isolated address
+spaces. And some systems can even survive as simple monolithic programs running
+in a single process. 
 
 As strange as it may seem, this decision is one of the options that a good
 architect leaves open. A system that is written as a monolith, and that depends
 on that monolithic structure, cannot easily be upgraded to multiple processes,
 multiple threads, or micro-services should the need arise. By comparison, an
-architecture that maintains the proper isolation of its components, and does
-not assume the means of communication between those components, will be much
-easier to transition through the spectrum of threads, processes, and services
-as the operational needs of the system change over time.
+architecture that maintains the proper isolation of its components, and does not
+assume the means of communication between those components, will be much easier
+to transition through the spectrum of threads, processes, and services as the
+operational needs of the system change over time.
 
 ## Development
 
 Architecture plays  a significant role in supporting the development
 environment.  Conway's law come into play here:
 
-*Any organization that designs a system will produce a design whose structure
-is a copy of the organization's communication structure.*
+*Any organization that designs a system will produce a design whose structure is
+a copy of the organization's communication structure.*
 
 ## Deployment
 
@@ -848,8 +842,8 @@ write that. The reality is that achieving this balance is pretty hard. The
 problem is that most of the time we don't know what all the use cases are, nor
 do we know the operational constraints, the team structure, or the deployment
     requirements. Worse, even if we did know them, they will inevitably change
-    as the system moves through its life cycle. In short, the goals we must
-    meet are indistinct and inconstant. Welcome to the real world. 
+    as the system moves through its life cycle. In short, the goals we must meet
+    are indistinct and inconstant. Welcome to the real world. 
 
 A good architecture makes the system easy to change, in all the ways that it
 must change, by leaving options open.
@@ -868,34 +862,34 @@ for different reasons, and to collect those things that change for the same
 What changes for different reasons? There are some obvious things. User
 interfaces change for reasons that have nothing to do with business rules. Use
 cases have elements of both. Clearly, then, a good architect will want to
-separate the UI portions of a use case from the business rule portions in such
-a way that they can be changed independently of each other, while keeping those
+separate the UI portions of a use case from the business rule portions in such a
+way that they can be changed independently of each other, while keeping those
 use cases visible and clear. 
 
-Business rules themselves may be closely tied to the application, or they may
-be more general. For example, the validation of input fields is a business rule
+Business rules themselves may be closely tied to the application, or they may be
+more general. For example, the validation of input fields is a business rule
 that is closely tied to the application itself. In contrast, the calculation of
-interest on an account and the counting of inventory are business rules that
-are more closely associated with the domain. These two different kinds of rules
-will change at different rates, and for different reasons—so they should be
-separated so that they can be independently changed.
+interest on an account and the counting of inventory are business rules that are
+more closely associated with the domain. These two different kinds of rules will
+change at different rates, and for different reasons—so they should be separated
+so that they can be independently changed.
 
-The database, the query language, and even the schema are technical details
-that have nothing to do with the business rules or the UI. They will change at
-rates, and for reasons, that are independent of other aspects of the system.
+The database, the query language, and even the schema are technical details that
+have nothing to do with the business rules or the UI. They will change at rates,
+and for reasons, that are independent of other aspects of the system.
 Consequently, the architecture should separate them from the rest of the system
 so that they can be independently changed.
 
 Thus we find the system divided into decoupled horizontal layers—the UI,
-application-specific business rules, application-independent business rules,
-and the database, just to mention a few.
+application-specific business rules, application-independent business rules, and
+the database, just to mention a few.
 
 ## Decoupling Use Cases
 
 What else changes for different reasons? The use cases themselves! The use case
 for adding an order to an order entry system almost certainly will change at a
-    different rate, and for different reasons, than the use case that deletes
-    an order from the system. Use cases are a very natural way to divide the
+    different rate, and for different reasons, than the use case that deletes an
+    order from the system. Use cases are a very natural way to divide the
     system.
 
 At the same time, use cases are narrow vertical slices that cut through the
@@ -906,16 +900,15 @@ to horizontal layers, we are also dividing the system into thin vertical use
 cases that cut through those layers.
 
 To achieve this decoupling, we separate the UI of the add-order use case from
-the UI of the delete-order use case. We do the same with the business rules,
-and with the database. We keep the use cases separate down the vertical height
-of the system.
+the UI of the delete-order use case. We do the same with the business rules, and
+with the database. We keep the use cases separate down the vertical height of
+the system.
 
 You can see the pattern here. If you decouple the elements of the system that
-change for different reasons, then you can continue to add new use cases
-without interfering with old ones. If you also group the UI and database in
-support of those use cases, so that each use case uses a different aspect of
-the UI and database, then adding new use cases will be unlikely to affect older
-ones.
+change for different reasons, then you can continue to add new use cases without
+interfering with old ones. If you also group the UI and database in support of
+those use cases, so that each use case uses a different aspect of the UI and
+database, then adding new use cases will be unlikely to affect older ones.
 
 ## Decoupling mode
 
@@ -951,9 +944,9 @@ Before we explore that topic further, let's look to the other two bullets.
 Architects often fall into a trap—a trap that hinges on their fear of
 duplication.
 
-Duplication is generally a bad thing in software. We don't like duplicated
-code. When code is truly duplicated, we are honor-bound as professionals to
-reduce and eliminate it. 
+Duplication is generally a bad thing in software. We don't like duplicated code.
+When code is truly duplicated, we are honor-bound as professionals to reduce and
+eliminate it. 
 
 But there are different kinds of duplication. There is true duplication, in
 which every change to one instance necessitates the same change to every
@@ -964,33 +957,33 @@ duplicates. Return to them in a few years, and you'll find that they are very
 different from each other. 
 
 Now imagine two use cases that have very similar screen structures. The
-architects will likely be strongly tempted to share the code for that
-structure.  But should they? Is that true duplication? Or it is accidental?
+architects will likely be strongly tempted to share the code for that structure.
+But should they? Is that true duplication? Or it is accidental?
 
 Most likely it is accidental. As time goes by, the odds are that those two
 screens will diverge and eventually look very different. For this reason, care
-must be taken to avoid unifying them. Otherwise, separating them later will be
-a challenge.
+must be taken to avoid unifying them. Otherwise, separating them later will be a
+challenge.
 
-When you are vertically separating use cases from one another, you will run
-into this issue, and your temptation will be to couple the use cases because
-they have similar screen structures, or similar algorithms, or similar database
+When you are vertically separating use cases from one another, you will run into
+this issue, and your temptation will be to couple the use cases because they
+have similar screen structures, or similar algorithms, or similar database
 queries and/or schemas. Be careful. Resist the temptation to commit the sin of
 knee-jerk elimination of duplication. Make sure the duplication is real.
 
-By the same token, when you are separating layers horizontally, you might
-notice that the data structure of a particular database record is very similar
-to the data structure of a particular screen view. You may be tempted to simply
-pass the database record up to the UI, rather than to create a view model that
-looks the same and copy the elements across. Be careful: This duplication is
-almost certainly accidental. Creating the separate view model is not a lot of
-effort, and it will help you keep the layers properly decoupled.
+By the same token, when you are separating layers horizontally, you might notice
+that the data structure of a particular database record is very similar to the
+data structure of a particular screen view. You may be tempted to simply pass
+the database record up to the UI, rather than to create a view model that looks
+the same and copy the elements across. Be careful: This duplication is almost
+certainly accidental. Creating the separate view model is not a lot of effort,
+and it will help you keep the layers properly decoupled.
 
 ## Decoupling Modes (Again)
 
-Back to modes. There are many ways to decouple layers and use cases. They can
-be decoupled at the source code level, at the binary code (deployment) level,
-and at the execution unit (service) level.
+Back to modes. There are many ways to decouple layers and use cases. They can be
+decoupled at the source code level, at the binary code (deployment) level, and
+at the execution unit (service) level.
 
 • **Source level**. 
 
@@ -1019,9 +1012,9 @@ communicate solely through network packets such that every execution unit is
 entirely independent of source and binary changes to others (e.g., services or
 micro-services) 
 
-What is the best mode to use? The answer is that it's hard to know which mode
-is best during the early phases of a project. Indeed, as the project matures,
-the optimal mode may change.
+What is the best mode to use? The answer is that it's hard to know which mode is
+best during the early phases of a project. Indeed, as the project matures, the
+optimal mode may change.
 
 For example, it's not difficult to imagine that a system that runs comfortably
 on one server right now might grow to the point where some of its components
@@ -1035,15 +1028,14 @@ expensive and encourages coarse-grained decoupling. No matter how “micro" the
 micro-services get, the decoupling is not likely to be fine-grained enough.
 
 **My preference is to push the decoupling to the point where a service could be
-formed. should it become necessary; but then to leave the components in the
-same address space as long as possible. This leaves the option for a service
-open.**
+formed. should it become necessary; but then to leave the components in the same
+address space as long as possible. This leaves the option for a service open.**
 
 A good architecture will allow a system to be born as a monolith, deployed in a
 single file, but then to grow into a set of independently deployable units, and
-then all the way to independent services and/or micro-services. Later, as
-things change, it should allow for reversing that progression and sliding all
-the way back down into a monolith.
+then all the way to independent services and/or micro-services. Later, as things
+change, it should allow for reversing that progression and sliding all the way
+back down into a monolith.
 
 # Boundaries: Drawing Lines
 
@@ -1053,9 +1045,9 @@ written. Others are drawn much later. Those that are drawn early are drawn for
 the purposes of deferring decisions for as long as possible, and of keeping
 those decisions from polluting the core business logic.
 
-Recall that the goal of an architect is to minimize the human resources
-required to build and maintain the required system. What it is that saps this
-kind of people-power? Coupling—and especially coupling to premature decisions.
+Recall that the goal of an architect is to minimize the human resources required
+to build and maintain the required system. What it is that saps this kind of
+people-power? Coupling—and especially coupling to premature decisions.
 
 Which kinds of decisions are premature? Decisions that have nothing to do with
 the business requirements—the use cases—of the system. These include decisions
@@ -1068,11 +1060,11 @@ decisions to be made at the latest possible moment, without significant impact.
 
 ## Which Lines Do You Draw, and When Do You Draw Them?
 
-You draw lines between things that matter and things that don't. The GUI
-doesn't matter to the business rules, so there should be a line between them.
-The database doesn't matter to the GUI, so there should be a line between them.
-The database doesn't matter to the business rules, so there should be a line
-between them.
+You draw lines between things that matter and things that don't. The GUI doesn't
+matter to the business rules, so there should be a line between them.  The
+database doesn't matter to the GUI, so there should be a line between them.  The
+database doesn't matter to the business rules, so there should be a line between
+them.
 
 The classes and interfaces in this diagram are symbolic. In a real application,
 there would be many business rule classes, many database interface classes, and
@@ -1093,8 +1085,8 @@ Database component.
 The history history of software development technology is the story of how to
 conveniently create plugins to establish a scalable and maintainable system
 architecture. The core business rules are kept separate from, and independent
-of, those components that are either optional or that can be implemented in
-many different forms ![Plugin Arq](./images/plugin_arch.png) Because the user
+of, those components that are either optional or that can be implemented in many
+different forms ![Plugin Arq](./images/plugin_arch.png) Because the user
 interface in this design is considered to be a plugin, we have made it possible
 to plug in many different kinds of user interfaces. They could be web based,
 client/server based, SOA based, Console based, or based on any other kind of
@@ -1103,11 +1095,10 @@ user interface technology
 ## Conclusion
 
 To draw boundary lines in a software architecture, you first partition the
-system into components. Some of those components are core business rules;
-others are plugins that contain necessary functions that are not directly
-related to the core business. Then you arrange the code in those components
-such that the arrows between them point in one direction—toward the core
-business.
+system into components. Some of those components are core business rules; others
+are plugins that contain necessary functions that are not directly related to
+the core business. Then you arrange the code in those components such that the
+arrows between them point in one direction—toward the core business.
 
 You should recognize this as an application of the Dependency Inversion
 Principle and the Stable Abstractions Principle. Dependency arrows are arranged
@@ -1129,15 +1120,14 @@ code dependencies.
 ## The dreaded monolith
 
 The simplest and most common of the architectural boundaries has no strict
-physical representation. It is simply a disciplined segregation of functions
-and data within a single processor and a single address space. In a previous
+physical representation. It is simply a disciplined segregation of functions and
+data within a single processor and a single address space. In a previous
 chapter, I called this the source-level decoupling mode.
 
-The fact that the boundaries are not visible during the deployment of a
-monolith does not mean that they are not present and meaningful. Even when
-statically linked into a single executable, the ability to independently
-develop and marshal the various components for final assembly is immensely
-valuable. 
+The fact that the boundaries are not visible during the deployment of a monolith
+does not mean that they are not present and meaningful. Even when statically
+linked into a single executable, the ability to independently develop and
+marshal the various components for final assembly is immensely valuable. 
 
 Such architectures almost always depend on some kind of dynamic polymorphism to
 manage their internal dependencies. This is one of the reasons that
@@ -1184,11 +1174,11 @@ within a component, or spread across many components.
 ## Local Processes
 
 A much stronger physical architectural boundary is the local process. A local
-process is typically created from the command line or an equivalent system
-call. Local processes run in the same processor, or in the same set of
-processors within a multicore, but run in separate address spaces. Memory
-protection generally prevents such processes from sharing memory, although
-shared memory partitions are often used.
+process is typically created from the command line or an equivalent system call.
+Local processes run in the same processor, or in the same set of processors
+within a multicore, but run in separate address spaces. Memory protection
+generally prevents such processes from sharing memory, although shared memory
+partitions are often used.
 
 Most often, local processes communicate with each other using sockets, or some
 other kind of operating system communications facility such as mailboxes or
@@ -1266,18 +1256,17 @@ Business
 ## Use case
 
 A use case is a description of the way that an automated system is used. It
-specifies the input to be provided by the user, the output to be returned to
-the user, and the processing steps involved in producing that output. A use
-case describes application-specific business rules as opposed to the Critical
+specifies the input to be provided by the user, the output to be returned to the
+user, and the processing steps involved in producing that output. A use case
+describes application-specific business rules as opposed to the Critical
 Business Rules within the Entities.
 
 Use cases contain the rules that specify how and when the Critical Business
 Rules within the Entities are invoked. Use cases control the dance of the
 Entities.
 
-From the use case, it is impossible to tell whether the application is
-delivered on the web, or on a thick client, or on a console, or is a pure
-service.
+From the use case, it is impossible to tell whether the application is delivered
+on the web, or on a thick client, or on a console, or is a pure service.
 
 This is very important. Use cases do not describe how the system appears to the
 user. Instead, they describe the application-specific rules that govern the
@@ -1295,8 +1284,8 @@ outputs of that system.
 So what does the architecture of your application scream? When you look at the
 top-level directory structure, and the source files in the highest-level
 package, do they scream “Health Care System," or “Accounting System," or
-“Inventory Management System"? Or do they scream “Rails," or
-“Spring/Hibernate," or “ASP"?
+“Inventory Management System"? Or do they scream “Rails," or “Spring/Hibernate,"
+or “ASP"?
 
 ## The Theme of an architecture
 
@@ -1320,12 +1309,12 @@ it as such.
 
 ## Frameworks are tools not ways of life
 
-Frameworks can be very powerful and very useful. Framework authors often
-believe very deeply in their frameworks. The examples they write for how to use
-their frameworks are told from the point of view of a true believer. Other
-authors who write about the framework also tend to be disciples of the true
-belief. They show you the way to use the framework. Often they assume an
-all-encompassing, all-pervading, let-the-framework-do-everything position.
+Frameworks can be very powerful and very useful. Framework authors often believe
+very deeply in their frameworks. The examples they write for how to use their
+frameworks are told from the point of view of a true believer. Other authors who
+write about the framework also tend to be disciples of the true belief. They
+show you the way to use the framework. Often they assume an all-encompassing,
+all-pervading, let-the-framework-do-everything position.
 
 This is not the position you want to take.
 
@@ -1351,11 +1340,11 @@ characteristics:
 * Testable. The business rules can be tested without the UI, database, web
   server, or any other external element.
 * Independent of the UI. The UI can change easily, without changing the rest of
-  the system. A web UI could be replaced with a console UI, for example,
-  without changing the business rules.
+  the system. A web UI could be replaced with a console UI, for example, without
+  changing the business rules.
 * Independent of the database. You can swap out Oracle or SQL Server for Mongo,
-  BigTable, CouchDB, or something else. Your business rules are not bound to
-  the database.
+  BigTable, CouchDB, or something else. Your business rules are not bound to the
+  database.
 * Independent of any external agency. In fact, your business rules don't know
   anything at all about the interfaces to the outside world.
 
@@ -1363,8 +1352,7 @@ characteristics:
 
 ## The dependency rule
 
-*Source code dependencies must point only inward, toward higher-level
-policies.*
+*Source code dependencies must point only inward, toward higher-level policies.*
 
 Nothing in an inner circle can know anything at all about something in an outer
 circle. In particular, the name of something declared in an outer circle must
@@ -1379,8 +1367,8 @@ doesn't matter so long as the entities can be used by many different
 applications in the enterprise.  
 
 If you don't have an enterprise and are writing just a single application, then
-these entities are the business objects of the application. They encapsulate
-the most general and high-level rules. 
+these entities are the business objects of the application. They encapsulate the
+most general and high-level rules. 
 
 ## Use Cases
 
@@ -1391,8 +1379,8 @@ those entities to use their Critical Business Rules to achieve the goals of the
 use case.  
 
 Changes to the operation of the application will affect the use cases and,
-therefore, the software in this layer. If the details of a use case change,
-then some code in this layer will certainly be affected.  
+therefore, the software in this layer. If the details of a use case change, then
+some code in this layer will certainly be affected.  
 
 Similarly, data is converted, in this layer, from the form most convenient for
 entities and use cases, to the form most convenient for whatever persistence
@@ -1426,24 +1414,24 @@ for the inner circle.
 
 ## The humble object pattern
 
-The Humble Object pattern1 is a design pattern that was originally identified
-as a way to help unit testers to separate behaviors that are hard to test from
+The Humble Object pattern1 is a design pattern that was originally identified as
+a way to help unit testers to separate behaviors that are hard to test from
 behaviors that are easy to test. The idea is very simple: Split the behaviors
-into two modules or classes. One of those modules is humble; it contains all
-the hard-to-test behaviors stripped down to their barest essence. The other
-module contains all the testable behaviours that were stripped out of the
-humble object. 
+into two modules or classes. One of those modules is humble; it contains all the
+hard-to-test behaviors stripped down to their barest essence. The other module
+contains all the testable behaviours that were stripped out of the humble
+object. 
 
 
 ## Database Gateways
 
 Between the use case interactors and the database are the database gateways.2
-These gateways are polymorphic interfaces that contain methods for every
-create, read, update, or delete operation that can be performed by the
-application on the database. For example, if the application needs to know the
-last names of all the users who logged in yesterday, then the UserGateway
-interface will have a method named getLastNamesOfUsersWhoLoggedInAfter that
-takes a Date as its argument and returns a list of last names.
+These gateways are polymorphic interfaces that contain methods for every create,
+read, update, or delete operation that can be performed by the application on
+the database. For example, if the application needs to know the last names of
+all the users who logged in yesterday, then the UserGateway interface will have
+a method named getLastNamesOfUsersWhoLoggedInAfter that takes a Date as its
+argument and returns a list of last names.
 
 Recall that we do not allow SQL in the use cases layer; instead, we use gateway
 interfaces that have appropriate methods. Those gateways are implemented by
@@ -1451,17 +1439,16 @@ classes in the database layer. That implementation is the humble object. It
 simply uses SQL, or whatever the interface to the database is, to access the
 data required by each of the methods. The interactors, in contrast, are not
 humble because they encapsulate application-specific business rules. Although
-they are not humble, those interactors are testable, because the gateways can
-be replaced with appropriate stubs   
+they are not humble, those interactors are testable, because the gateways can be
+replaced with appropriate stubs   
 
 ## Data Mappers
 
 There is no such thing as an object relational mapper (ORM). The reason is
 simple: Objects are not data structures. At least, they are not data structures
 from their users' point of view. The users of an object cannot see the data,
-since it is all private. Those users see only the public methods of that
-object. So, from the user's point of view, an object is simply a set of
-operations.
+since it is all private. Those users see only the public methods of that object.
+So, from the user's point of view, an object is simply a set of operations.
 
 A data structure, in contrast, is a set of public data variables that have no
 implied behavior. ORMs would be better named “data mappers," because they load
@@ -1494,8 +1481,8 @@ compile and deploy all
 ## One-dimensional boundaries
 
 The full-fledged architectural boundary uses reciprocal boundary interfaces to
-maintain isolation in both directions. Maintaining separation in both
-directions is expensive both in initial setup and in ongoing maintenance. 
+maintain isolation in both directions. Maintaining separation in both directions
+is expensive both in initial setup and in ongoing maintenance. 
 
 ## Facades
 
@@ -1525,10 +1512,10 @@ those boundaries don't exist.
 In every system, there is at least one component that creates, coordinates, and
 oversees the others. I call this component Main.
 
-Its job is to create all the Factories, Strategies, and other global
-facilities, and then hand control over to the high-level abstract portions of
-the system.  It is in this Main component that dependencies should be injected
-by a Dependency
+Its job is to create all the Factories, Strategies, and other global facilities,
+and then hand control over to the high-level abstract portions of the system.
+It is in this Main component that dependencies should be injected by a
+Dependency
 
 Injection framework. Once they are injected into Main, Main should distribute
 those dependencies normally, without using the framework.
@@ -1536,18 +1523,17 @@ those dependencies normally, without using the framework.
 Think of Main as the dirtiest of all the dirty components.
 
 Think of Main as a plugin to the application—a plugin that sets up the initial
-conditions and configurations, gathers all the outside resources, and then
-hands control over to the high-level policy of the application. Since it is a
-plugin, it is possible to have many Main components, one for each configuration
-of your application. 
+conditions and configurations, gathers all the outside resources, and then hands
+control over to the high-level policy of the application. Since it is a plugin,
+it is possible to have many Main components, one for each configuration of your
+application. 
 
 For example, you could have a Main plugin for Dev, another for Test, and yet
 another for Production. You could also have a Main plugin for each country you
 deploy to, or each jurisdiction, or each customer. 
 
-When you think about Main as a plugin component, sitting behind an
-architectural boundary, the problem of configuration becomes a lot easier to
-solve.
+When you think about Main as a plugin component, sitting behind an architectural
+boundary, the problem of configuration becomes a lot easier to solve.
 
 
 # Services: Great and small Service-oriented “architectures" and micro-service
@@ -1571,11 +1557,11 @@ architecture.
 ## The decoupling fallacy
 
 One of the big supposed benefits of breaking a system up into services is that
-services are strongly decoupled from each other. After all, each service runs
-in a
+services are strongly decoupled from each other. After all, each service runs in
+a
 
-There is certainly some truth to this—but not very much truth. Yes, services
-are decoupled at the level of individual variables. However, they can still be
+There is certainly some truth to this—but not very much truth. Yes, services are
+decoupled at the level of individual variables. However, they can still be
 coupled by shared resources within a processor, or on the network. What's more,
 they are strongly coupled by the data they share.  
 
@@ -1591,9 +1577,9 @@ monoliths and component-based systems as well as service-based systems. Thus
 services are not the only option for building scalable systems.  
 
 Yes! Services do not need to be little monoliths. Services can, instead, be
-designed using the SOLID principles, and given a component structure so that
-new components can be added to them without changing the existing components
-within the service.  
+designed using the SOLID principles, and given a component structure so that new
+components can be added to them without changing the existing components within
+the service.  
 
 The services still exist as before, but each has its own internal component
 design, allowing new features to be added as new derivative classes. Those
@@ -1611,10 +1597,10 @@ instead, the components within the services
 As useful as services are to the scalability and develop-ability of a system,
 they are not, in and of themselves, architecturally significant elements.
 
-A service might be a single component, completely surrounded by an
-architectural boundary. Alternatively, a service might be composed of several
-components separated by architectural boundaries. In rare2 cases, clients and
-services may be so coupled as to have no architectural sig 
+A service might be a single component, completely surrounded by an architectural
+boundary. Alternatively, a service might be composed of several components
+separated by architectural boundaries. In rare2 cases, clients and services may
+be so coupled as to have no architectural sig 
 
 ## The test boundary
 
@@ -1622,9 +1608,9 @@ From an architectural point of view, all tests are the same.
 
 Tests are the most isolated system component. They are not necessary for system
 operation. No user depends on them. Their role is to support development, not
-operation. And yet, they are no less a system component than any other. In
-fact, in many ways they represent the model that all other system components
-should follow.  
+operation. And yet, they are no less a system component than any other. In fact,
+in many ways they represent the model that all other system components should
+follow.  
 
 ## Design for testability
 
@@ -1647,8 +1633,8 @@ code.
 Why does so much potential embedded software become firmware? 
 
 1. “First make it work." You are out of business if it doesn't work.
-2. “Then make it right." Refactor the code so that you and others can
-understand it and evolve it as needs change or are better understood.
+2. “Then make it right." Refactor the code so that you and others can understand
+it and evolve it as needs change or are better understood.
 3. “Then make it fast." Refactor the code for “needed" performance.
 
 
@@ -1664,13 +1650,13 @@ override the service one for the other.
 
 # The database is a detail
 
-From an architectural point of view, the database is a non-entity—it is a
-detail that does not rise to the level of an architectural element.
+From an architectural point of view, the database is a non-entity—it is a detail
+that does not rise to the level of an architectural element.
 
-The structure you give to the data within your application is highly
-significant to the architecture of your system. But the database is not the
-data model. The database is piece of software. The database is a utility that
-provides access to the data.
+The structure you give to the data within your application is highly significant
+to the architecture of your system. But the database is not the data model. The
+database is piece of software. The database is a utility that provides access to
+the data.
 
 
 ## Relational databases
@@ -1690,18 +1676,18 @@ and relational database management systems (RDBMS).
 File systems are document based. They provide a natural and convenient way to
 store whole documents. They work well when you need to save and retrieve a set
 of documents by name, but they don't offer a lot of help when you're searching
-the content of those documents. It's easy to find a file named login.c, but
-it's hard, and slow, to find every .c file that has a variable named x in it.
+the content of those documents. It's easy to find a file named login.c, but it's
+hard, and slow, to find every .c file that has a variable named x in it.
 
-Database systems are content based. They provide a natural and convenient way
-to find records based on their content. They are very good at associating
-multiple records based on some bit of content that they all share.
-Unfortunately, they are rather poor at storing and retrieving opaque documents. 
+Database systems are content based. They provide a natural and convenient way to
+find records based on their content. They are very good at associating multiple
+records based on some bit of content that they all share.  Unfortunately, they
+are rather poor at storing and retrieving opaque documents. 
 
 ## Performance
 
-Isn't performance an architectural concern? Of course it is—but when it comes
-to data storage, it's a concern that can be entirely encapsulated and separated
+Isn't performance an architectural concern? Of course it is—but when it comes to
+data storage, it's a concern that can be entirely encapsulated and separated
 from the business rules. 
 
 
@@ -1729,10 +1715,10 @@ author makes no commitment to you whatsoever.
 # The missing chapter
 
 All of the advice you've read so far will certainly help you design better
-software, composed of classes and components with well-defined boundaries,
-clear responsibilities, and controlled dependencies. But it turns out that the
-devil is in the implementation details, and it's really easy to fall at the
-last hurdle if you don't give 
+software, composed of classes and components with well-defined boundaries, clear
+responsibilities, and controlled dependencies. But it turns out that the devil
+is in the implementation details, and it's really easy to fall at the last
+hurdle if you don't give 
 
 
 ## Package by layer
@@ -1776,9 +1762,9 @@ objects to
 
 # Conclusion: the missing advice
 
-The whole point of this chapter is to highlight that your best design
-intentions can be  destroyed in a flash if you don't consider the intricacies
-of the implementation strategy. Think about how to map your desired design on
-to code structures, how to organize that code, and which decoupling modes to
-apply during runtime and compile-time. 
+The whole point of this chapter is to highlight that your best design intentions
+can be  destroyed in a flash if you don't consider the intricacies of the
+implementation strategy. Think about how to map your desired design on to code
+structures, how to organize that code, and which decoupling modes to apply
+during runtime and compile-time. 
 

@@ -1,8 +1,12 @@
 ## Maps
 
-Maps in Go similar to Hashes in Ruby, Objects in JavaScript and Dictionaries in Python is a Key-Value datatype. Even though they are similar to sturcts, they differ in some things. 
+Maps in Go similar to Hashes in Ruby, Objects in JavaScript and Dictionaries in
+Python is a Key-Value datatype. Even though they are similar to sturcts, they
+differ in some things. 
 
-Both Keys and Values are statically types. Keys and Values can be of different types between them but all Keys on a Map should be of the same Type, same for Values.
+Both Keys and Values are statically types. Keys and Values can be of different
+types between them but all Keys on a Map should be of the same Type, same for
+Values.
 
 Declare an empty **Maps**.
 
