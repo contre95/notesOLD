@@ -40,7 +40,7 @@ aws ec2 create-vpc-endpoint \
 ### Adding a VPC Endpoint Policy
 
 **Infrastructure Diagram:**
-Would end up lookign somethis like this |
+Would end up looking something this like this |
 :--------------------------------------:|
 <img src="img/2021-06-01-11-26-38.png" width=400> |
 
