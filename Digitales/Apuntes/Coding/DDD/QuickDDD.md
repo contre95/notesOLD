@@ -61,7 +61,7 @@ ensures that the model can actually be implemented.
 
 ### The building blocks of a Model Driven Design
 
-![](img/2021-06-22-11-25-26.png)
+![Model Driven Design](img/2021-06-22-11-25-26.png)
 
 ```
 **Lo que me cuesta entender de este Diagrama:**
@@ -112,11 +112,27 @@ This means of identification may come from outside or it may be created by and
 for the system, bit it must correspond to the identity distinctions in the model.
 The model must define what it means to be the same thing.
 
-```
-I have some trouble with this last idea, shouldn't it be necessary that the ID is define yes-or-yes, at least, by a module in the domain ?
-```
- 
 Beware of considering all objects entities, there may be performance issues.
 (Consider the case of a drawing App explained in the book)
 
 ## Value Objects
+
+There are cases where we need to contain some attributes of a domain element we
+are not interested in which object it is, but what attributes it has. An object
+that is used to describe certain aspects of a domain, and which does not have
+identity, is name value object.
+
+It is highly recommendable that these objects are immutable, even more if they
+are sharable
+
+Value objects  should stay thin, making a copy of a V.O should be easy.
+
+Value Objects, can contain other value objects, and they can even contain
+references to entities. Although V.O attributes of a domain object, that does
+not mean that it should contain a long list with all the attributes.
+Attributes can be grouped in different objects. Attributes chosen to make up a
+V.O should form a conceptual whole.
+ 
+![Value Objects](img/2021-06-22-15-47-12.png)
+
+## Services
