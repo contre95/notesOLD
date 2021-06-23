@@ -63,13 +63,6 @@ ensures that the model can actually be implemented.
 
 ![Model Driven Design](img/2021-06-22-11-25-26.png)
 
-```
-**Lo que me cuesta entender de este Diagrama:**
-
-* **Entieties** *act as root* and *mantains integrity* with **Aggregates**
-
-* **Model Driven Design** *express model* with **Value Objects**
-```
 
 ## Layered Architecture
 
