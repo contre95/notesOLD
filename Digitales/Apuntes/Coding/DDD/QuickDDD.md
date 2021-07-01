@@ -163,8 +163,3 @@ There are 3 characteristics of a Service:
 It is easy to confused services which belongs to the domain and those that
 belong to the infrastructure. (To read more about it please refer to the last
 part of the "Service" chapter where some examples are provided)
-
-
-
-
-
