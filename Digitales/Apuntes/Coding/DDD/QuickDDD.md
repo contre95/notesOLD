@@ -136,3 +136,42 @@ V.O should form a conceptual whole.
 ![Value Objects](img/2021-06-22-15-47-12.png)
 
 ## Services
+
+Some aspects of the domain are not easily mapped to objects,. Objects are
+generally considered as having attributes, an internal state which is managed by
+the object, and exhibit a behaviour.
+
+The nouns of the language are easily mapped to objects, the verbs of the
+language become the part of the behaviour of those objects. But there are some
+actions in the domain, some verbs, which do not seem to belong to any object.
+They represent an important behaviour of the domain, so they cannot be neglected
+or simply incorporated to some of the Entities or Value Objects. Nonetheless,
+using an OO language, we have to use an object for this purpose. 
+
+When such a behaviour is recognized in the domain, the best practice is to
+declare it as a Service. Such object does not have an internal state, and it
+purpose is to provide functionality to the domain. The Service can group
+related functionality which serves Entities and Value Objects. 
+
+Services must be declared explicitly, they must encapsulate a concept. We should
+not create a Service for each operation needed. But when such an operation
+stands out as an important concept in the domain.
+
+A Service is not about the object performing the service, but is related to the
+objects the operations are performed on/for. They usually become the point of
+connection for many objects.
+
+There are 3 characteristics of a Service:
+    1. The operation performed by a Service refers to a domain concept which
+       does not naturally belong to an Entity or Value Object
+    2. The operation performed refers to other objects in the domain.
+    3.  The operation is stateless
+
+It is easy to confused services which belongs to the domain and those that
+belong to the infrastructure. (To read more about it please refer to the last
+part of the "Service" chapter where some examples are provided)
+
+
+
+
+
