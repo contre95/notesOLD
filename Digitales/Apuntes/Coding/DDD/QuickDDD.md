@@ -178,3 +178,38 @@ part of the "Service" chapter where some examples are provided)
 
 
 ## Modules
+
+The model reaches a point where it is hard to talk about as a whole and
+understanding the relationships and interaction between different parts
+becomes difficult. For that reason, it is necessary to organize the model into
+modules.
+
+Using modules in design is a way to increase cohesion and decrease coupling.
+Modules should be made up of elements which functionally or logically belongs
+together assuring cohesion. Modules should have wall defined interfaces which
+are accessed by other modules instead of calling three objects of a module, it is better to access one interface, because it reduces coupling. Low coupling reduces complexity, and increases maintainability. It is easier to understand how a system functions when there are few connections between modules. 
+
+It is widely accepted   that software code should have a high level of
+cohesion and low level of coupling.
+
+There are several types of cohesion. Two of the most used are
+**communicational cohesion** and **functional cohesion** . 
+
+Communicational cohesion is achieved when parts of the module operate on the
+same data. It makes sense to group the because there is a strong relationship
+between them.
+
+Functional cohesion is achieved when all parts of the modules work together to perform a well-defined task. This is consider the best type of cohesion.
+
+Chose modules that tells the story of the system and contain a cohesive set of
+concepts.
+
+Seek low coupling in the sense of concepts that can be understood and reasoned
+about independently of each other.
+
+Give the modules names that become part of the Ubiquitous Language. Name of
+modules should reflect insights into the domain.
+
+# Aggregates
+
+
