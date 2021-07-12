@@ -1,15 +1,15 @@
 # Quick DDD Notes
 
 This notes have been taken from the free [Domain Driven Design Quickly
-](https://www.goodreads.com/book/show/2558105). I highly
-recommend reading the book. I have found it to be a concise summary of the
-[original book](https://www.goodreads.com/en/book/show/179133). In this summary
-I will be just mentioning/listing the best ideas of the all the concepts
-mentioned in the book. 
+](https://www.goodreads.com/book/show/2558105). I highly recommend reading the
+book. I have found it to be a concise summary of the [original
+book](https://www.goodreads.com/en/book/show/179133). In this summary I will be
+just mentioning/listing the best ideas of the all the concepts mentioned in the
+book. 
 
-**Disclaimer:** *There is no strict narrative to this post, just
-useful ideas written in a sentence or two to Ctrl+F whenever you hesitate before making a design
-decision.*
+**Disclaimer:** *There is no strict narrative to this post, just useful ideas
+written in a sentence or two to Ctrl+F whenever you hesitate before making a
+design decision.*
 
 ## Model
 
@@ -165,8 +165,8 @@ connection for many objects.
 
 There are 3 characteristics of a Service:
 
-1. The operation performed by a Service refers to a domain concept which
-does not naturally belong to an Entity or Value Object
+1. The operation performed by a Service refers to a domain concept which does
+not naturally belong to an Entity or Value Object
 
 2. The operation performed refers to other objects in the domain.
 
@@ -180,26 +180,29 @@ part of the "Service" chapter where some examples are provided)
 ## Modules
 
 The model reaches a point where it is hard to talk about as a whole and
-understanding the relationships and interaction between different parts
-becomes difficult. For that reason, it is necessary to organize the model into
-modules.
+understanding the relationships and interaction between different parts becomes
+difficult. For that reason, it is necessary to organize the model into modules.
 
 Using modules in design is a way to increase cohesion and decrease coupling.
 Modules should be made up of elements which functionally or logically belongs
 together assuring cohesion. Modules should have wall defined interfaces which
-are accessed by other modules instead of calling three objects of a module, it is better to access one interface, because it reduces coupling. Low coupling reduces complexity, and increases maintainability. It is easier to understand how a system functions when there are few connections between modules. 
+are accessed by other modules instead of calling three objects of a module, it
+is better to access one interface, because it reduces coupling. Low coupling
+reduces complexity, and increases maintainability. It is easier to understand
+how a system functions when there are few connections between modules. 
 
-It is widely accepted   that software code should have a high level of
-cohesion and low level of coupling.
+It is widely accepted   that software code should have a high level of cohesion
+and low level of coupling.
 
-There are several types of cohesion. Two of the most used are
-**communicational cohesion** and **functional cohesion** . 
+There are several types of cohesion. Two of the most used are **communicational
+cohesion** and **functional cohesion** . 
 
 Communicational cohesion is achieved when parts of the module operate on the
 same data. It makes sense to group the because there is a strong relationship
 between them.
 
-Functional cohesion is achieved when all parts of the modules work together to perform a well-defined task. This is consider the best type of cohesion.
+Functional cohesion is achieved when all parts of the modules work together to
+perform a well-defined task. This is consider the best type of cohesion.
 
 Chose modules that tells the story of the system and contain a cohesive set of
 concepts.
@@ -210,6 +213,104 @@ about independently of each other.
 Give the modules names that become part of the Ubiquitous Language. Name of
 modules should reflect insights into the domain.
 
-# Aggregates
+--- 
 
+# Modeling Domain Objects (Aggregates)?
 
+The last three patterns in this chapter will deal with a different modeling
+challenge, one related to the life cycle of domain objects. Domain objects go
+through a set of states during their life time. They are created, placed in
+memory and used in computations, and they are destroyed. In some cases they are 
+saved in permanent locations, like a database, where they can be retrieved from
+some time later, or they can be archived.
+
+No matter how much consideration we put in the design, it happens that many
+objects are associated with one another, creating a complex net of
+relationships. There are several types of associations. For every traversable
+association in the model, there has to be corresponding software mechanism which
+enforces it. Real associations between domain object end up in the code, and
+many times even in the database. A one-to-one relationship between a customer
+and the bank account opened on his name is expressed as a reference between two
+objects, and implies a relationship between two database tables, the one which
+keeps the customers and the one which keeps the accounts.  
+
+Most of the time it pays of to eliminate or simplify relations from the model.
+That is, unless they embed deep understanding of the domain.
+
+A one-to-many association is more complex because it involves many objects which
+become related. This relationship can be simplified by transforming it into an
+association between one object and a collection of other objects, although it is
+not always 
+
+There are many-to-many associations and a large number of theme are
+bidirectional. Associations which are not essential for the model should be
+removed. They may exist in the domain, but they are not necessary in our model,
+so take them out. 
+Multiplicity can be reduced by adding a constraint. If many
+objects satisfy a relationship, it is possible that only one will do it if the
+right constraint is imposed on the relationship.
+Many time bidirectional relationships can be transformed in unidirectional ones.
+
+When domain objects are related and any of them changes (deleted, modified, etc.)
+the system needs to make sure that is is properly updated throughout the system,
+and data integrity is guaranteed. This is usually left to be addressed at
+database level. Transactions are used to enforce data integrity.
+
+While database transactions play a vital role in such operations, it is
+desirable to solve some of the problems related to data integrity directly in
+the model.
+
+It is also necessary to be able to enforce the invariants. The invariants are
+those rules which have to be maintained whenever data changes.
+
+Therefore use Aggregates
+
+## Aggregates
+
+Aggregate is a domain pattern used to define object ownership and boundaries.
+Factories and Repositories are two design patterns which help us deal with
+object creation and storage.
+
+An  Aggregate is a group of associated objects which are considered as one unit
+with regard to data changes. The Aggregate is demarcated by a boundary which
+separated the objects inside from those outside. Each Aggregate has one root.
+The root is an Entity, and it is the only object accessible from outside. The
+root can hold references to any of the aggregate objects, and the other objects
+can hold references to each other, but an outside object can hold references
+only to the root object. If there are other Entities inside the boundary, the
+identity of those entities is local, making sense only inside the aggregate.
+
+How is the Aggregate ensuring data integrity and enforcing the invariants? Since
+other objects can hold references only to the root, it means that they cannot
+directly change the other objects in the aggregate. All they can do is to change
+the root, or ask the root to perform some actions. And the root will be able to
+change the other objects, but that is an operation contained inside the
+aggregate, and it is controllable. If the root is deleted and removed from
+memory, all the other objects from the aggregate will be deleted too, because
+there is no other object holding reference to any of them.  
+
+It is possible for the root to pass transient references of internal objects to
+external ones, with the condition that the external objects do not hold the
+reference after the operation is finished.  One simple way to do that is to pass
+copies of the Value Objects to external objects. It does not really matter what
+happens to those objects, because it won't affect the integrity of the aggregate
+in any way. 
+
+If objects of an Aggregate are stored in a database, only the root
+should be obtainable through queries. The other objects should be obtained
+through traversal associations.  
+
+Objects inside an Aggregate should be allowed to hold references to roots of
+other Aggregates.
+
+The root Entity has global identity, and is responsible for maintaining the 
+invariants. Internal Entities have local identity.  
+
+Cluster the Entities and Value Objects into Aggregates and define boundaries
+around each.  Choose one Entity to be the root of each Aggregate, and control
+all access to the objects inside the boundary through the root. Allow external
+objects to hold references to the root only. Transient references to internal
+members can be passed out for use within a single operation only. Because the
+root controls access, it cannot be blindsided by changes to the internals. This
+arrangement makes it practical to enforce all invariants for objects in the
+Aggregate and for the Aggregate as a whole in any state change. 
