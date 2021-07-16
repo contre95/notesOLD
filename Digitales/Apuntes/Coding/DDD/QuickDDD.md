@@ -215,7 +215,7 @@ modules should reflect insights into the domain.
 
 --- 
 
-# Modeling Domain Objects (Aggregates)?
+## Modeling Domain Objects (Aggregates)?
 
 The last three patterns in this chapter will deal with a different modeling
 challenge, one related to the life cycle of domain objects. Domain objects go
